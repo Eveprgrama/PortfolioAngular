@@ -1,0 +1,10 @@
+/* Modal*/
+.modal-header {
+    background-color:#888888;
+}
+.modal-body {
+    background-color:  #eae7e4;
+}
+.modal-footer {
+    background-color:  #eae7e4 !important;
+}
