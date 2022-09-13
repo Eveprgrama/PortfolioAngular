@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { EditHardskillsComponent } from '../Modales/edit-hardskills/edit-hardskills.component';
+import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
+import { Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-hard-skills',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HardSkillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }

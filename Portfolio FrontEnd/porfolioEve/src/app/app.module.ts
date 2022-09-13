@@ -13,10 +13,22 @@ import { HardSkillsComponent } from './hard-skills/hard-skills.component';
 import { SoftskillsComponent } from './softskills/softskills.component';
 import { TrabajosComponent } from './trabajos/trabajos.component';
 import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ErrorComponent } from './error/Error.component';
+import { IndexComponent } from './index/index.component';
+import { NavbardashboardComponent } from './dashboard/navbardashboard/navbardashboard.component';
+import { EditBannerComponent } from './Modales/edit-banner/edit-banner.component';
+import { EditSobremiComponent } from './Modales/edit-sobremi/edit-sobremi.component';
+import { EditresumeComponent } from './Modales/editresume/editresume.component';
+import { EliminarComponent } from './Modales/eliminar/eliminar.component';
+import { EditHardskillsComponent } from './Modales/edit-hardskills/edit-hardskills.component';
+import { EditSoftComponent } from './Modales/edit-soft/edit-soft.component';
+import { EditPortfolioComponent } from './Modales/edit-portfolio/edit-portfolio.component';
+
 
 
 @NgModule({
-  declarations: [
+  declarations: [				
     AppComponent,
     NavbarComponent,
     RedesComponent,
@@ -28,9 +40,18 @@ import { FooterComponent } from './footer/footer.component';
     SoftskillsComponent,
     TrabajosComponent,
     FooterComponent,
-    
-    
-  ],
+      DashboardComponent,
+      ErrorComponent,
+      IndexComponent,
+      NavbardashboardComponent,
+      EditBannerComponent,
+      EditSobremiComponent,
+      EditresumeComponent,
+      EliminarComponent,
+      EditHardskillsComponent,
+      EditSoftComponent,
+      EditPortfolioComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
