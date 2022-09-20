@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EditPortfolioComponent } from '../Modales/edit-portfolio/edit-portfolio.component'; 
 import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
-import { Router } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-trabajos',
@@ -11,9 +10,10 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class TrabajosComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    AOS.init();
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }

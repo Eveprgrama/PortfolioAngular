@@ -27,6 +27,7 @@ import { EditPortfolioComponent } from './Modales/edit-portfolio/edit-portfolio.
 
 
 
+
 @NgModule({
   declarations: [				
     AppComponent,
@@ -51,6 +52,7 @@ import { EditPortfolioComponent } from './Modales/edit-portfolio/edit-portfolio.
       EditHardskillsComponent,
       EditSoftComponent,
       EditPortfolioComponent,
+      
    ],
   imports: [
     BrowserModule,

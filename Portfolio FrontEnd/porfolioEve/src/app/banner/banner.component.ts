@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EditBannerComponent } from '../Modales/edit-banner/edit-banner.component';
-import { Router } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-banner',
@@ -11,13 +10,15 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class BannerComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
+  scrollToElement(selector:any) {
+    const element = document.querySelector(selector)
+    element ? element.scrollIntoView({behavior: "smooth"}): null;
+  }
 
 }
-function navigateSection(): any {
-  const element = document.getElementById('footer') as HTMLElement;
-  element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-}
+
+
