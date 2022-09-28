@@ -1,5 +1,6 @@
 <!-- ======= Resume Section ======= -->
 <section id="resume" class="resume section-bg" data-aos="zoom-in-up">
+ 
     <div class="container">
   
       <div class="section-title">
@@ -9,61 +10,47 @@
       <div class="row">
         <div class="col-lg-6">
           <h3 class="resume-title">Educación</h3>
-          <div class="resume-item">
-            <h4> <img src="../../assets/img/escuelanormal.png" alt="" width="10%"  class="rounded"> Escuela Normal Superior José Figueroa Alcorta</h4>
-            <h5>2006 - 2012</h5>
-            <p><em>Escuela Secundaria, Bell Ville, Cba.</em></p>
-            <p>Escuela secundaria con especialización en ciencias sociales <br>
-              <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></p>
-          </div>
-          <div class="resume-item">
-            <h4> <img src="../../assets/img/azafran.png" alt="" width="10%"  class="rounded">Azafrán: Escuela de Gastronomía</h4>
-            <h5>2014 - 2017</h5>
-            <p><em>Tecnicatura superior en gastronomía</em></p>
-            <p>La Tecnicatura Superior en Gastronomía ofrece una formación de alta capacitación interdisciplinaria, brindando las herramientas y técnicas necesarias a través de programas, contenidos y dinámicas diseñados para que el alumno pueda adquirir los conocimientos y destrezas de forma idónea.
-  
-              De esta manera, el alumno se familiariza con contenidos de bromatología, nutrición, diseño de menús, enología, servicio, organización de eventos, administración, gestión, costos, diseño y equipamiento de cocinas, además de los contenidos propiamente culinarios. <br>
-              <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></p>
-            </div>
-          <div class="resume-item">
-            <h4> <img src="../../assets/img/argentinaprograma.png" alt="" width="10%"> Argentina Programa</h4>
-            <h5>2022 - Presente</h5>
-            <p><em>Modalidad Online</em></p>
-            <p>Programa de formación de Full stack web developers jr <br>
+          <div class="resume-item" *ngFor="let escuelas of educacion">
+           <h4> <img [src]="escuelas.img" alt="" width="10%"  class="rounded"> {{ escuelas.instituto }} </h4>
+            <h5>{{escuelas.inicio}} - {{escuelas.fin}}</h5>
+            <p><em>{{escuelas.descripcion}}</em></p>
+            <p>{{escuelas.especializacion}} <br>
               <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></p>
           </div>
         </div>
+          
         <div class="col-lg-6">
           <h3 class="resume-title">Experiencia Profesional</h3>
-          <div class="resume-item">
-            <h4> <img src="../../assets/img/azafran.png" alt="" width="10%"  class="rounded">Azafrán: Escuela de Gastronomía</h4>
-            <h5>2014 - 2017</h5>
-            <p><em>Córdoba, Argentina. </em></p>  
+          <div *ngFor="let trabajos of trabajo" class="resume-item">
+            <h4> <img [src]="trabajos.img" alt="" width="10%"  class="rounded"> {{trabajos.nombre}}</h4>
+            <h5>{{trabajos.inicio}} - {{trabajos.fin}}</h5>
+            <p><em>{{trabajos.localidad}} </em></p>  
             <ul>
-              <li>Ayudante de Cocina.</li>
-              <li>Prácticas de formación culinaria <br>
+              <li>{{trabajos.tag1}}</li>
+              <li *ngIf="trabajos.id == 5 ">{{trabajos.tag3}}</li>
+              <li *ngIf="trabajos.id == 5">{{trabajos.tag4}}</li>
+              <li>{{trabajos.tag2}} <br>
                 <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></li>
+
             </ul>
-          </div>
-          <div class="resume-item">
-            <h4> <img src="../../assets/img/marievlogo.JPG" alt="" width="10%"  class="rounded"> Mariev:Boutique de Pastas</h4>
-            <h5>2017 - Presente</h5>
-            <p><em>Fabrica de Pastas, Bell Ville, CBA</em></p>
-            <ul>
-              <li>Chef</li>
-              <li>Administración general</li>
-              <li>Manejo de las Redes Sociales</li>
-              <li>Atención al cliente
-                <br>
-                 <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar>
-              </li>
-            </ul> 
           </div>
         </div>
       </div>
     </div>
-  </section>
+</section>
   <!-- End Resume Section -->
   <br>
   <br>
   <br>
+
+
+<!--
+  * ngFor ="let hero of superHeroes" (click) ="onSelect(hero)"
+      <div ngFor ="let educacion of resume" class="resume-item">
+        <h4> <img [src]="educacion.imagen" alt="educacion.nombreimagen" width="10%"  class="rounded"> {{escuela.nombre}}</h4>
+        <h5>{{escuela.inicio}} {{escuela.fin}}</h5>
+        <p><em>{{escuela.titulo}}</em></p>
+        <p>{{escuela.descripcion}} <br>
+          <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></p>
+      </div>
+      -->

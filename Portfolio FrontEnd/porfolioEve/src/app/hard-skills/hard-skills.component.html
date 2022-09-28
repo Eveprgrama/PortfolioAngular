@@ -7,36 +7,13 @@
         <br>
       </div>
     <div class="row">
-        <div class="col-md-3">
-            <h5 class="progressbar-title">HTML5</h5>
-            <div class="progress-circle progress-50"><span>50</span>
+        <div *ngFor="let skills of porcentaje" class="col-md-3">
+            <h5 class="progressbar-title">{{skills.titulo}}</h5>
+            <div class="progress-circle progress-{{skills.progreso}}"><span>{{skills.progreso}}</span>
             </div>  
             <br>
             <app-edit-hardskills></app-edit-hardskills> <br> <app-eliminar></app-eliminar>
         </div>
-        <div class="col-md-3">
-            <h5 class="progressbar-title">CSS3</h5>
-            <div class="progress-circle progress-60"><span>60</span>
-            </div> 
-            <br>
-            <app-edit-hardskills></app-edit-hardskills> <br> <app-eliminar></app-eliminar>
-          </div> 
-                
-          <div class="col-md-3">
-            <h5 class="progressbar-title">JavaScript</h5>
-            <div class="progress-circle progress-30"><span>30</span>
-            </div>  
-            <br>
-            <app-edit-hardskills></app-edit-hardskills> <br> <app-eliminar></app-eliminar>
-            </div>
-
-            <div class="col-md-3">
-            <h5 class="progressbar-title">Photoshop</h5>
-            <div class="progress-circle progress-40"><span>40</span>
-            </div> 
-            <br>
-            <app-edit-hardskills></app-edit-hardskills> <br> <app-eliminar></app-eliminar>
-          </div> 
     </div>
 </div>
 </section>

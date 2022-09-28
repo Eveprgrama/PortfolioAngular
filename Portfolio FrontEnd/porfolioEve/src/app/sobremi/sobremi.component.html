@@ -1,5 +1,13 @@
 <!--  About me Section -->
 <section id="about-section" class="pt-5 pb-5" data-aos="zoom-in-up">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="container wrapabout">
         <div class="red"></div>
         <div class="row">
@@ -10,16 +18,16 @@
                             <h3>Sobre Mí</h3>
                         </div>
                         <p class="description-p text-muted pe-0 pe-lg-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere sequi, quia, est sed dicta aliquid quidem facilis culpa iure perferendis? Dolor ad quia deserunt.
+                            {{texto1}}
                         </p>
-                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">{{texto2}}</p>
                         <app-edit-sobremi></app-edit-sobremi>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <figure class="potoaboutwrap">
-                    <img src="../../assets/img/IMG_5413.JPG" alt="Yo" width="60%" rounded-border/>
+                    <img  [src]="imagen" alt="Yo" width="60%" rounded-border/>
                 </figure>
             </div>
         </div>

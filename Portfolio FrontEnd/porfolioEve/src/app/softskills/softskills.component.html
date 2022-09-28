@@ -1,99 +1,33 @@
 <!-- Soft Skills Section -->
 <section id="softskills" class="softskills" data-aos="zoom-in-up">
-    <div class="container">
-  
+
+    <div  class="container">
       <div class="section-title">
         <h2>Soft Skills</h2>
         <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
         <br>
       </div>
-  
-      <div class="row">
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+      <div  class="row">
+        <div *ngFor="let habilidad of habilidadesuno" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box">
-            <div class="icon"><i class="fa-regular fa-lightbulb" style="color: #b4b6b3;"></i></div>
-            <h4 class="title"><a href="">Creatividad</a></h4>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam accusantium hic ipsa eum aliquid earum quae laboriosam temporibus.</p>
+            <div class="icon"><i [class]="habilidad.imagen" style="color: #b4b6b3;"></i></div>
+            <h4 class="title"><a href="">{{habilidad.titulo}}</a></h4>
+            <p class="description">{{habilidad.descripcion}}</p>
             <app-edit-soft></app-edit-soft>
-            <br>
-            <app-eliminar></app-eliminar>
-          </div>
-        </div>
-  
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="fa-solid fa-user-group" style="color: #b4b6b3;"></i></div>
-            <h4 class="title"><a href="">Comunicación</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            <app-edit-soft></app-edit-soft> 
-            <br>
-            <app-eliminar></app-eliminar>
-          </div>
-        </div>
-  
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="fa-solid fa-people-group" style="color: #b4b6b3;"></i></div>
-            <h4 class="title"><a href="">Trabajo en Equipo</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <app-edit-soft></app-edit-soft>
-            <br>
-            <app-eliminar></app-eliminar>
-          </div>
-        </div>
-  
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="fa-regular fa-clock" style="color: #b4b6b3;"></i></div>
-            <h4 class="title"><a href="">Gestion del tiempo</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            <app-edit-soft></app-edit-soft> 
             <br>
             <app-eliminar></app-eliminar>
           </div>
         </div>
       </div>
       <br>
-      <div class="container">
+      <div  class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div *ngFor="let habilidades of habilidadesdos" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="fa-solid fa-brain" style="color: #b4b6b3;"></i></div>
-              <h4 class="title"><a href="">Pensamiento Crítico</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam accusantium hic ipsa eum aliquid earum quae laboriosam temporibus.</p>
+              <div class="icon"><i [class]="habilidades.imagen" style="color: #b4b6b3;"></i></div>
+              <h4 class="title"><a href="">{{habilidades.titulo}}</a></h4>
+              <p class="description">{{habilidades.descripcion}}.</p>
               <app-edit-soft></app-edit-soft>
-              <br>
-              <app-eliminar></app-eliminar>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="fa-solid fa-suitcase" style="color: #b4b6b3;"></i></div>
-              <h4 class="title"><a href="">Responsabilidad</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              <app-edit-soft></app-edit-soft> 
-              <br>
-              <app-eliminar></app-eliminar>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="fa-solid fa-code-branch" style="color: #b4b6b3;"></i></div>
-              <h4 class="title"><a href="">Capacidad Resolutiva</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              <app-edit-soft></app-edit-soft>
-              <br>
-              <app-eliminar></app-eliminar>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="fa-regular fa-face-smile" style="color: #b4b6b3;"></i></div>
-              <h4 class="title"><a href="">Empatía</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-              <app-edit-soft></app-edit-soft> 
               <br>
               <app-eliminar></app-eliminar>
             </div>

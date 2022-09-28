@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EditresumeComponent } from '../Modales/editresume/editresume.component';
 import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
 import * as AOS from 'aos';
+import { PortfolioService } from '../Servicios/portfolio.service';
+
 
 @Component({
   selector: 'app-resume',
@@ -9,11 +11,18 @@ import * as AOS from 'aos';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
+  educacion:any=[];
+  trabajo:any=[];
 
-  constructor() { }
+  constructor(private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
     AOS.init()
+    this.portfolioService.obtenerDatos().subscribe(portfolio => {
+      console.log(portfolio);
+      this.educacion = portfolio.educacion;
+      this.trabajo = portfolio.trabajo;
+     });
   }
 
 }
