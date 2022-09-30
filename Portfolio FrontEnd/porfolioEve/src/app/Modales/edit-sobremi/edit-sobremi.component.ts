@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-sobremi',
@@ -13,5 +13,4 @@ export class EditSobremiComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

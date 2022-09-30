@@ -4,7 +4,8 @@
 
     "banner": {
     "titulo": "Full Stack Web Developer",
-    "img": "assets/img/banner.jpg"
+    "img": "assets/img/banner.jpg",
+    "size": "cover"
 },
 
 "sobremi": {

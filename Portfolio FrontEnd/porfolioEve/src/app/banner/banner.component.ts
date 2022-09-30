@@ -14,7 +14,7 @@ export class BannerComponent implements OnInit {
  nombre: string = "";
  apellido: string = "";
  titulo: string = "";
- img : string = ""
+ img : string = "";
 
 
   constructor(private portfolioService:PortfolioService) { }
