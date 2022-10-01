@@ -8,7 +8,6 @@ import { RouterModule, Routes } from '@angular/router';
   styleUrls: ['./edit-banner.component.css']
 })
 export class EditBannerComponent implements OnInit {
-display: any;
   constructor(public router: Router) { }
 
   ngOnInit(): void {

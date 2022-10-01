@@ -8,3 +8,10 @@
 .modal-footer {
     background-color:  #eae7e4 !important;
 }
+.error{
+    color: fuchsia;
+  }
+  
+  .border-danger{
+    border-color: fuchsia!important;
+  }
