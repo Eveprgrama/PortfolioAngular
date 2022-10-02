@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EditSobremiComponent } from '../Modales/edit-sobremi/edit-sobremi.component';
-import * as AOS from 'aos';
 import { PortfolioService } from '../Servicios/portfolio.service';
+
 
 
 @Component({
@@ -17,7 +16,6 @@ export class SobremiComponent implements OnInit {
   constructor(private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
-    AOS.init();
     this.portfolioService.obtenerDatos().subscribe(portfolio => {
       //definir informacion a mostrar
       console.log(portfolio);

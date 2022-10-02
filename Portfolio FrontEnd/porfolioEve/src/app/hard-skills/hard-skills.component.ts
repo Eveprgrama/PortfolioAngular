@@ -15,7 +15,6 @@ export class HardSkillsComponent implements OnInit {
   constructor(private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
-    AOS.init()
     this.portfolioService.obtenerDatos().subscribe(portfolio => {
       console.log(portfolio);
       this.porcentaje = portfolio.porcentajes;

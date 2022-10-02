@@ -17,7 +17,6 @@ export class ResumeComponent implements OnInit {
   constructor(private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
-    AOS.init()
     this.portfolioService.obtenerDatos().subscribe(portfolio => {
       console.log(portfolio);
       this.educacion = portfolio.educacion;
