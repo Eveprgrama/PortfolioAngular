@@ -21,12 +21,13 @@ import { NavbardashboardComponent } from './dashboard/navbardashboard/navbardash
 import { EditBannerComponent } from './Modales/edit-banner/edit-banner.component';
 import { EditSobremiComponent } from './Modales/edit-sobremi/edit-sobremi.component';
 import { EditresumeComponent } from './Modales/editresume/editresume.component';
-import { EliminarComponent } from './Modales/eliminar/eliminar.component';
 import { EditHardskillsComponent } from './Modales/edit-hardskills/edit-hardskills.component';
 import { EditSoftComponent } from './Modales/edit-soft/edit-soft.component';
 import { EditPortfolioComponent } from './Modales/edit-portfolio/edit-portfolio.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { EditEstudiosComponent } from './Modales/edit-estudios/edit-estudios/edit-estudios.component';
+import { AddexperienciaComponent } from './Modales/editresume-add/addexperiencia/addexperiencia.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -51,10 +52,11 @@ import { HttpClientModule } from '@angular/common/http';
       EditBannerComponent,
       EditSobremiComponent,
       EditresumeComponent,
-      EliminarComponent,
       EditHardskillsComponent,
       EditSoftComponent,
       EditPortfolioComponent,
+      EditEstudiosComponent,
+      AddexperienciaComponent,
     
       
    ],
@@ -64,7 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

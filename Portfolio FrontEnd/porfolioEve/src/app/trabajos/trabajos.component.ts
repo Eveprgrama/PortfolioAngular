@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EditPortfolioComponent } from '../Modales/edit-portfolio/edit-portfolio.component'; 
-import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
 import * as AOS from 'aos';
 import { PortfolioService } from '../Servicios/portfolio.service';
 

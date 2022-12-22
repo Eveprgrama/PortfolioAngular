@@ -7,22 +7,26 @@
          <h5 class="modal-title">Editar</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form (ngSubmit)="onUpdate()">
        <div class="modal-body">
            <div class="mb-3">
-            <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-               <input class="form-control form-control-sm" id="formFileSm" type="text">
+            <label for="formFileSm" class="form-label">Nombre</label>
+               <input class="form-control form-control-sm" id="nombre" name="nombre" type="text" [(ngModel)]="Persona.nombre" required >
+               <label for="formFileSm" class="form-label">Apellido</label>
+               <input class="form-control form-control-sm" id="apellido" name="apellido" type="text" [(ngModel)]="Persona.apellido" required>
                <label for="formFileSm" class="form-label">Imagen Header</label>
-               <input class="form-control form-control-sm" id="formFileSm" type="file">
-             </div>
+               <input class="form-control form-control-sm" id="img" name="name" type="file" [(ngModel)]="Persona.img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+             </div> 
              <div class="mb-3">
                <label for="formFileSm" class="form-label">Título</label>
-               <input class="form-control form-control-sm" id="formFileSm" type="text">
+               <input class="form-control form-control-sm" id="titulo"  name="titulo" type="text" [(ngModel)]="Persona.titulo" required>
              </div>
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
          <button type="button" class="btn btn-primary" id="end_editing">Guardar Cambios</button>
        </div>
+       </form>
      </div>
 </div>
 </div>

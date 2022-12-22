@@ -15,22 +15,22 @@
             <h5>{{escuelas.inicio}} - {{escuelas.fin}}</h5>
             <p><em>{{escuelas.descripcion}}</em></p>
             <p>{{escuelas.especializacion}} <br>
-              <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></p>
+            <app-edit-estudios></app-edit-estudios> <br> </p>
           </div>
         </div>
           
         <div class="col-lg-6">
-          <h3 class="resume-title">Experiencia Profesional</h3>
-          <div *ngFor="let trabajos of trabajo" class="resume-item">
-            <h4> <img [src]="trabajos.img" alt="" width="10%"  class="rounded"> {{trabajos.nombre}}</h4>
-            <h5>{{trabajos.inicio}} - {{trabajos.fin}}</h5>
-            <p><em>{{trabajos.localidad}} </em></p>  
+          <h3 class="resume-title">Experiencia Profesional</h3><app-addexperiencia></app-addexperiencia>
+          <div *ngFor="let Experiencia of expe" class="resume-item">
+            <h4> <img [src]="Experiencia.img" alt="" width="10%"  class="rounded"> {{Experiencia.nombreE}}</h4>
+            <h5>{{Experiencia.inicio}} - {{Experiencia.fin}}</h5>
+            <p><em>{{Experiencia.localidad}} </em></p>  
             <ul>
-              <li>{{trabajos.tag1}}</li>
-              <li *ngIf="trabajos.id == 5 ">{{trabajos.tag3}}</li>
-              <li *ngIf="trabajos.id == 5">{{trabajos.tag4}}</li>
-              <li>{{trabajos.tag2}} <br>
-                <app-editresume></app-editresume> <br> <app-eliminar></app-eliminar></li>
+              <li>{{Experiencia.descripcionE}}</li>
+               <br>
+               <td routerLinkActive="active">
+               <i class="fa-solid fa-pencil" type="button" *ngIf="this.router.url === '/dashboard'" routerLink="/editexp/{{Experiencia.id}}"></i> <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="this.router.url === '/dashboard'" (click)="delete(Experiencia.id)" ></i></td>
+               
 
             </ul>
           </div>
@@ -42,7 +42,7 @@
   <br>
   <br>
   <br>
-
+ 
 
 <!--
   * ngFor ="let hero of superHeroes" (click) ="onSelect(hero)"

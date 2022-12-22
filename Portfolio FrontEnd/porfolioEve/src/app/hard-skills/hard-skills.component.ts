@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EditHardskillsComponent } from '../Modales/edit-hardskills/edit-hardskills.component';
-import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
-import * as AOS from 'aos';
 import { PortfolioService } from '../Servicios/portfolio.service';
 
 @Component({

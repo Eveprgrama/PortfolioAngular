@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EditresumeComponent } from '../Modales/editresume/editresume.component';
-import { EliminarComponent } from '../Modales/eliminar/eliminar.component';
-import * as AOS from 'aos';
-import { PortfolioService } from '../Servicios/portfolio.service';
+import { ExperienciaService } from '../service/experiencia.service';
+import { Experiencia } from '../model/experiencia';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -11,17 +10,34 @@ import { PortfolioService } from '../Servicios/portfolio.service';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
+  expe: Experiencia[] = [];
   educacion:any=[];
   trabajo:any=[];
 
-  constructor(private portfolioService:PortfolioService) { }
+  constructor(private sExperiencia: ExperienciaService, public router: Router) { }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerDatos().subscribe(portfolio => {
+    this.cargarExperiencia();
+    /*this.portfolioService.obtenerDatos().subscribe(portfolio => {
       console.log(portfolio);
       this.educacion = portfolio.educacion;
       this.trabajo = portfolio.trabajo;
-     });
+     });*/
   }
-
+cargarExperiencia(): void{
+  this.sExperiencia.lista().subscribe(
+    data => {this.expe = data;} );
+}
+delete(id?:number){
+  if(id !=undefined){
+    this.sExperiencia.delete(id).subscribe(
+      data=>{
+        this.cargarExperiencia();
+        window.location.reload();
+      }, err => {
+        window.location.reload();
+      }
+    )
+  }
+}
 }

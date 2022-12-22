@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EditBannerComponent } from '../Modales/edit-banner/edit-banner.component';
-import { FooterComponent } from '../footer/footer.component';
-import { PortfolioService } from '../Servicios/portfolio.service';
+import { Persona } from '../model/persona';
+import { PersonaService } from '../service/persona.service';
 
 
 @Component({
@@ -10,29 +9,34 @@ import { PortfolioService } from '../Servicios/portfolio.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  persona: Persona = new Persona("","","","");
   //inicializar variables de instancia
- nombre: string = "";
- apellido: string = "";
- titulo: string = "";
- img : string = "";
+// img : string = ""; esto es para el json
 
 
-  constructor(private portfolioService:PortfolioService) { }
+  constructor(public personaService: PersonaService) { }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerDatos().subscribe(portfolio => {
-     //definir informacion a mostrar
-     console.log(portfolio);
-      this.nombre = portfolio.nombre;
-      this.apellido = portfolio.apellido;
-      this.titulo = portfolio.banner.titulo;
-      this.img = portfolio.banner.img;
-    })
+    this.cargarPersona();
+   
+ //si fuera un array iria ej habilidades: Habilidad[]=[];
+//este comando trae datos del porfolio
+   /* this.portfolioService.obtenerDatos().subscribe(portfolio => {*/
+    
+      
+    
   }
+  cargarPersona():void{
+    this.personaService.getPersona().subscribe(data => 
+      {this.persona = data;})}
   //ts para scroll del botón al footer
   scrollToElement(selector:any) {
     const element = document.querySelector(selector)
     element ? element.scrollIntoView({behavior: "smooth"}): null;
+
+    //para el get persona del backend 
+    //el suscribe es un metodo que escucha siempre que el observable haga un cambio
+    
   }
 
 }
