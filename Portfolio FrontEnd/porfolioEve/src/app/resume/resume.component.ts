@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExperienciaService } from '../service/experiencia.service';
 import { Experiencia } from '../model/experiencia';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -14,10 +15,11 @@ export class ResumeComponent implements OnInit {
   educacion:any=[];
   trabajo:any=[];
 
-  constructor(private sExperiencia: ExperienciaService, public router: Router) { }
+  constructor(private sExperiencia: ExperienciaService, public router: Router, activatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cargarExperiencia();
+    
     /*this.portfolioService.obtenerDatos().subscribe(portfolio => {
       console.log(portfolio);
       this.educacion = portfolio.educacion;
@@ -28,7 +30,10 @@ cargarExperiencia(): void{
   this.sExperiencia.lista().subscribe(
     data => {this.expe = data;} );
 }
-delete(id?:number){
+
+
+
+delete(id:number){
   if(id !=undefined){
     this.sExperiencia.delete(id).subscribe(
       data=>{
@@ -40,4 +45,7 @@ delete(id?:number){
     )
   }
 }
+
+
+
 }

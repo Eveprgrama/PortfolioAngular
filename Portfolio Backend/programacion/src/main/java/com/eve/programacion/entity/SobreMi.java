@@ -21,6 +21,7 @@ public class SobreMi {
      @Lob //almacenamos algo grande
      private String texto;
      @NotNull
+     @Lob
      private String imagen;
 
     public SobreMi(int id, String texto, String imagen) {

@@ -11,15 +11,13 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 })
 export class EditresumeComponent implements OnInit {
 expLab : Experiencia = null;
-  constructor(private router: Router, private sExperiencia: ExperienciaService, private FormBuilder: FormBuilder, private activatedrouter: ActivatedRoute, Experiencia: Experiencia) {}
+  constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const id = this.activatedrouter.snapshot.params['id'];
+   const id = this.activatedrouter.snapshot.params['id'];
     this.sExperiencia.detail(id).subscribe(
       data =>{
         this.expLab = data;
-      }, err =>{
-        alert("Error al modificar experiencia");
       }
     )
   }
@@ -27,9 +25,6 @@ onUpdate(): void{
   const id = this.activatedrouter.snapshot.params['id'];
   this.sExperiencia.update(id, this.expLab).subscribe(
     data=>{
-      window.location.reload();
-    }, err =>{
-      alert("Error al modificar experiencia");
       window.location.reload();
     }
   )

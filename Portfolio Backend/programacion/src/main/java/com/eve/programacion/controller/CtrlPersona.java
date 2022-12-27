@@ -4,6 +4,7 @@ package com.eve.programacion.controller;
 
 import com.eve.programacion.entity.Persona;
 import com.eve.programacion.service.ImpPersonaService;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("personas")
 @CrossOrigin(origins = "http://localhost:4200")
+@Transactional
 public class CtrlPersona {
     @Autowired 
     ImpPersonaService interPersona;

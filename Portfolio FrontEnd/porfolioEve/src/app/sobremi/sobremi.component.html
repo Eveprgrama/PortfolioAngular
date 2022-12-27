@@ -18,16 +18,15 @@
                             <h3>Sobre Mí</h3>
                         </div>
                         <p class="description-p text-muted pe-0 pe-lg-0">
-                            {{texto1}}
+                            {{sobremi.texto}}
                         </p>
-                        <p class="description-p text-muted pe-0 pe-lg-0">{{texto2}}</p>
-                        <app-edit-sobremi></app-edit-sobremi>
+                        <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi" *ngIf="this.router.url === '/dashboard'"></i>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <figure class="potoaboutwrap">
-                    <img  [src]="imagen" alt="Yo" width="60%" rounded-border/>
+                    <img  [src]="sobremi.imagen" alt="Yo" width="60%" rounded-border/>
                 </figure>
             </div>
         </div>

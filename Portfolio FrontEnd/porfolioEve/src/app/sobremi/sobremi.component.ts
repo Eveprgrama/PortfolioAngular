@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../Servicios/portfolio.service';
+import { Router } from '@angular/router';
+import { Sobremi } from '../model/sobremi';
+import { SobremiService } from '../service/sobremi.service';
+
 
 
 
@@ -9,20 +12,16 @@ import { PortfolioService } from '../Servicios/portfolio.service';
   styleUrls: ['./sobremi.component.css']
 })
 export class SobremiComponent implements OnInit {
-  texto1: string = "";
-  texto2: string = "";
-  imagen: string = "";
+  sobremi:Sobremi = new Sobremi ("", "");
 
-  constructor(private portfolioService:PortfolioService) { }
+  constructor(private sobremiservice:SobremiService, public router: Router) { }
 
   ngOnInit(): void {
-    this.portfolioService.obtenerDatos().subscribe(portfolio => {
-      //definir informacion a mostrar
-      console.log(portfolio);
-       this.texto1 = portfolio.sobremi.texto1;
-       this.texto2 = portfolio.sobremi.texto2;
-       this.imagen = portfolio.sobremi.imagen;
-     })
+   this.cargarSobremi()
   }
+
+  cargarSobremi():void{
+    this.sobremiservice.getSobreMi().subscribe(data => 
+      {this.sobremi = data;})}
 
 }

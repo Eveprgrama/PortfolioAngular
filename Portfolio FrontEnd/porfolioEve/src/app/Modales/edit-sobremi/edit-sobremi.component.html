@@ -1,27 +1,18 @@
-<i class="fa-solid fa-pencil" id="editsobremi" type="button"  data-bs-toggle="modal" data-bs-target="#modal2" *ngIf="this.router.url === '/dashboard'"></i>
-
-<div class="modal" id="modal2" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Editar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div class="mb-3">
-              <label for="formFileSm" class="form-label">Imagen Perfil</label>
-              <input class="form-control form-control-sm" id="formFileSm" type="file">
+      <div class="container">
+       <form (ngSubmit)="onUpdate()" novalidate #f="ngForm"></form>
+       <div class="mb-3">
+              <label for="formFileSm" class="form-label">Url de Imagen Perfil</label>
+              <input class="form-control form-control-sm" id="formFileSm" type="text" formControlName="imagen" id="imagen" [(ngModel)]="smedit.imagen">
             </div>
             <div class="mb-3">
                <label for="exampleFormControlTextarea1" class="form-label">Sobre mí</label>
-               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="text" formControlName="texto" [(ngModel)]="smedit.texto"></textarea>
              </div>
+      <div class="footer">
+        <button type="button" class="btn btn-secondary">Cerrar</button>
+        <button type="button" class="btn btn-danger">Guardar Cambios</button>
+       </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
+    
+   
 
