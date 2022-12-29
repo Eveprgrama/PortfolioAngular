@@ -20,7 +20,7 @@
                         <p class="description-p text-muted pe-0 pe-lg-0">
                             {{sobremi.texto}}
                         </p>
-                        <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi" *ngIf="this.router.url === '/dashboard'"></i>
+                        <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi/{{sobremi.id}} " *ngIf="this.router.url === '/dashboard'"></i>
                     </div>
                 </div>
             </div>

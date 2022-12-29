@@ -40,6 +40,7 @@ delete(id:number){
         this.cargarExperiencia();
         window.location.reload();
       }, err => {
+        alert ("failed to delete component")
         window.location.reload();
       }
     )

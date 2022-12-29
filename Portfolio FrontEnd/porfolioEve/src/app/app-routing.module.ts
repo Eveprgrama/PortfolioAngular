@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:"index", component:IndexComponent},
   {path:"dashboard", component:DashboardComponent},
   {path:"editexp/:id", component:EditresumeComponent},
-  {path: "editsobremi", component:EditSobremiComponent},
+  {path: "editsobremi/:id", component:EditSobremiComponent},
   {path:"", redirectTo: "/index", pathMatch:"full"}
   
 ];
