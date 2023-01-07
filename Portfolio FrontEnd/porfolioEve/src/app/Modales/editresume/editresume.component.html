@@ -4,7 +4,7 @@
           <div class="mb-3">
             <div class="form group">
               <label for="img" class="form-label">Logo</label>
-              <input class="form-control form-control-sm" id="formFileSm" type="file" formControlName="logo">
+              <input class="form-control form-control-sm" id="img" type="text" formControlName="img" [(ngModel)]="expLab.img">
           </div>
         </div>
             <div class="mb-3">
@@ -16,19 +16,19 @@
             <div class="mb-3">
               <div class="form group">
                 <label for="inicio" class="form-label">Año de inicio</label>
-                <input class="form-control form-control-sm" id="inicio" formControlName="inicio" type="text" [(ngModel)]="expLab.inicio" required>
+                <input class="form-control form-control-sm" id="inicio" formControlName="inicio" type="text" [(ngModel)]="expLab.inicio">
               </div>
             </div>
               <div class="mb-3">
                 <div class="form group">
                 <label for="fin" class="form-label">Año de fin</label>
-                <input class="form-control form-control-sm" id="fin" formControlName="fin" type="text" [(ngModel)]="expLab.fin" required>
+                <input class="form-control form-control-sm" id="fin" formControlName="fin" type="text" [(ngModel)]="expLab.fin">
               </div>
             </div>
                 <div class="mb-3">
                   <div class="form group">
                   <label for="descripcionE" class="form-label">Descripción</label>
-                  <textarea class="form-control" id="descripcionE" formControlName="descripcionE" rows="3" [(ngModel)]="expLab.descripcionE" required></textarea>
+                  <textarea class="form-control" id="descripcionE" formControlName="descripcionE" rows="3" [(ngModel)]="expLab.descripcionE"></textarea>
                 </div>
               </div>    
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

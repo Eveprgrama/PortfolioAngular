@@ -14,11 +14,11 @@ expLab : Experiencia = null;
 form: FormGroup;
   constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute, private formBuilder: FormBuilder) {
     this.form= this.formBuilder.group({
-      nombreE:['',[Validators.required]],
-      inicio:['', [Validators.required]],
-      fin:['', [Validators.required]],
-      descripcionE:['', [Validators.required]],
-      logo:['', [Validators.required]],
+      nombreE:[''],
+      inicio:[''],
+      fin:[''],
+      descripcionE:[''],
+      img:[''],
    })
   }
 
