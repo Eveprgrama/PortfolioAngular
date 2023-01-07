@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sobremi } from 'src/app/model/sobremi';
 import { SobremiService } from 'src/app/service/sobremi.service';
-import { first } from 'rxjs';
+
 
 @Component({
   selector: 'app-edit-sobremi',
@@ -12,7 +12,7 @@ import { first } from 'rxjs';
   styleUrls: ['./edit-sobremi.component.css']
 })
 export class EditSobremiComponent implements OnInit {
-  smedit: Sobremi = null;
+  smedit: Sobremi = null; 
   
   form: FormGroup;
  

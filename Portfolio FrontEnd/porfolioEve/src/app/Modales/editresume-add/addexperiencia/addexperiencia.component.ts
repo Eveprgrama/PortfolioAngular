@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-addexperiencia',
@@ -11,12 +14,15 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 })
 export class AddexperienciaComponent implements OnInit {
   form: FormGroup;
-  nombreE:string='';
-  descripcionE:string='';
-  inicio:string='';
-  fin:string='';
-  localidad:string='';
-  img:string='';
+  nombreE:'';
+  descripcionE:'';
+  inicio:'';
+  fin:'';
+  localidad:'';
+  img:'';
+  public formcontrol: FormControl;
+
+
 
   constructor(public router: Router, private sExperiencia: ExperienciaService, private FormBuilder: FormBuilder) { 
     this.form= this.FormBuilder.group({
@@ -60,28 +66,22 @@ export class AddexperienciaComponent implements OnInit {
     return this.NombreE.touched && !this.NombreE.valid;
   }
  
- 
- 
- 
- onCreate():void {
-   const expe = new Experiencia (this.nombreE, this.descripcionE, this.inicio, this.fin, this.localidad, this.img);
-   this.sExperiencia.save(expe).subscribe(data =>{alert("Experiencia añadida");
-     window.location.reload();
-   }, err =>{
-    window.location.reload();
-   })
+ submitData(): void{
+const expe = new Experiencia(this.nombreE, this.descripcionE, this.inicio, this.fin, this.localidad, this.img);
+this.sExperiencia.save(expe).subscribe(
+  data=>{
+    console.log("agregada")
+  alert ("Experiencia añadida")
+  window.location.reload();
+}, err =>{
+  window.location.reload();
+})
+};
 
-   }
-   limpiar():void{
-     this.form.reset();
-   }
-onEnviar(event:Event){
-  event.preventDefault;
-  if (this.form.valid){
-    this.onCreate();
-  }else{
-    alert("falló la carga, intente nuevamente");
-    this.form.markAllAsTouched();
-  }
+ limpiar():void{
+  this.form.reset();
 }
+ 
+ 
+ 
 }

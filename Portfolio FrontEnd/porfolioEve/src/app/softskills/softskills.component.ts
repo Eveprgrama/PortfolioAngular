@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EditSoftComponent } from '../Modales/edit-soft/edit-soft.component'; 
-import * as AOS from 'aos';
 import { PortfolioService } from '../Servicios/portfolio.service';
 
 @Component({

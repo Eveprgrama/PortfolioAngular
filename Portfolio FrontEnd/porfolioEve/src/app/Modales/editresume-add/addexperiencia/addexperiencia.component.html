@@ -7,7 +7,7 @@
           <h5 class="modal-title">Editar</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
         </div>
-        <form [formGroup]="form" (ngSubmit)="onCreate()" name="experienciaForm">
+        <form [formGroup]="form" (ngSubmit)="submitData()" novalidate #f="ngForm" name="experienciaForm">
         <div class="modal-body">
             <div class="mb-3">
                 <label for="img" class="form-label">Logo</label>
@@ -34,7 +34,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-light" (click)="limpiar()">Limpiar</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Agregar Experiencia</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
         </div>
         </form>

@@ -11,7 +11,16 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 })
 export class EditresumeComponent implements OnInit {
 expLab : Experiencia = null;
-  constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute) {}
+form: FormGroup;
+  constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute, private formBuilder: FormBuilder) {
+    this.form= this.formBuilder.group({
+      nombreE:['',[Validators.required]],
+      inicio:['', [Validators.required]],
+      fin:['', [Validators.required]],
+      descripcionE:['', [Validators.required]],
+      logo:['', [Validators.required]],
+   })
+  }
 
   ngOnInit(): void {
    const id = this.activatedrouter.snapshot.params['id'];
@@ -25,12 +34,27 @@ onUpdate(): void{
   const id = this.activatedrouter.snapshot.params['id'];
   this.sExperiencia.update(id, this.expLab).subscribe(
     data=>{
-      window.location.reload();
+      this.router.navigateByUrl('/dashboard');
+    }, err =>{
+      this.router.navigateByUrl('/dashboard');
     }
   )
 }
   
+onEnviar(event: Event){
+  // Detenemos la propagación o ejecución del compotamiento submit de un form
+  event.preventDefault; 
 
+  if (this.form.valid){
+    // Llamamos a nuestro servicio para enviar los datos al servidor
+    // También podríamos ejecutar alguna lógica extra
+    alert("Todo salio bien ¡Enviar formuario!")
+  }else{
+    // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
+    this.form.markAllAsTouched(); 
+  }
+
+}
 
 
 

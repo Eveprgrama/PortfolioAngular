@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("experiencialaboral")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
+@CrossOrigin(origins = "http://localhost:4200")
 @Transactional
 public class CExperiencia {
     @Autowired
@@ -71,8 +71,8 @@ public class CExperiencia {
         return expe;
         }
     
-     @GetMapping("/detail/id")
-    public ResponseEntity<Experiencia> getById(@PathVariable ("id") int id) {
+     @GetMapping("/detail/{id}")
+    public ResponseEntity<Experiencia> getById(@PathVariable int id) {
        if (!servexp.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }

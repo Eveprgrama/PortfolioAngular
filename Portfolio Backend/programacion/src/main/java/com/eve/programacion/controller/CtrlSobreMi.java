@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("sobremi")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @Transactional
 public class CtrlSobreMi {
     @Autowired 
@@ -66,8 +66,8 @@ public class CtrlSobreMi {
         return acerca;
         }
     
-     @GetMapping("/detail/id")
-    public ResponseEntity<SobreMi> getById(@PathVariable ("id") int id) {
+     @GetMapping("/detail/{id}")
+    public ResponseEntity<SobreMi> getById(@PathVariable int id) {
        if (!intsm.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }
