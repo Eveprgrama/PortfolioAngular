@@ -13,6 +13,12 @@
               <input class="form-control form-control-sm" id="nombreE" formControlName="nombreE" type="text" [(ngModel)]="expLab.nombreE">
             </div>
           </div>
+          <div class="mb-3">
+            <div class="form group">
+              <label for="inicio" class="form-label">Localidad</label>
+              <input class="form-control form-control-sm" id="localidad" formControlName="localidad" type="text" [(ngModel)]="expLab.localidad">
+            </div>
+          </div>
             <div class="mb-3">
               <div class="form group">
                 <label for="inicio" class="form-label">Año de inicio</label>
@@ -31,7 +37,7 @@
                   <textarea class="form-control" id="descripcionE" formControlName="descripcionE" rows="3" [(ngModel)]="expLab.descripcionE"></textarea>
                 </div>
               </div>    
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
         <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
     </form>
   </div>

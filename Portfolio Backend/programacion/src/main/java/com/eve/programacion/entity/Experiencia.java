@@ -29,7 +29,7 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(int id, String nombreE, String descripcionE, String descripciondos, String inicio, String fin, String localidad, String img) {
+    public Experiencia(int id, String nombreE, String descripcionE,  String inicio, String fin, String localidad, String img) {
         this.id = id;
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;

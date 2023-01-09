@@ -19,6 +19,7 @@ form: FormGroup;
       fin:[''],
       descripcionE:[''],
       img:[''],
+      localidad:[''],
    })
   }
 
@@ -30,6 +31,30 @@ form: FormGroup;
       }
     )
   }
+  get NombreE() {
+    return this.form.get("nombreE")
+   }
+ 
+   get DescripcionE(){
+    return this.form.get("DescripcionE")
+   }
+   
+   get Inicio(){
+    return this.form.get("inicio")
+   }
+ 
+   get Fin(){
+    return this.form.get("fin")
+   }
+ 
+   get Localidad(){
+    return this.form.get("localidad")
+   }
+  
+   get Img(){
+    return this.form.get("img")
+   }
+
 onUpdate(): void{
   const id = this.activatedrouter.snapshot.params['id'];
   this.sExperiencia.update(id, this.expLab).subscribe(
@@ -42,21 +67,18 @@ onUpdate(): void{
 }
   
 onEnviar(event: Event){
-  // Detenemos la propagación o ejecución del compotamiento submit de un form
   event.preventDefault; 
-
-  if (this.form.valid){
-    // Llamamos a nuestro servicio para enviar los datos al servidor
-    // También podríamos ejecutar alguna lógica extra
+ if (this.form.valid){
     alert("Todo salio bien ¡Enviar formuario!")
-  }else{
-    // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
+  }else{    
     this.form.markAllAsTouched(); 
   }
 
 }
 
-
+volver(event:Event){
+  this.router.navigateByUrl('/dashboard');
+}
 
 
 
