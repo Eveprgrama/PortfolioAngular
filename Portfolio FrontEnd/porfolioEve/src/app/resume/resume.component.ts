@@ -3,6 +3,8 @@ import { ExperienciaService } from '../service/experiencia.service';
 import { Experiencia } from '../model/experiencia';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { EstudiosService } from '../service/estudios.service';
+import { Estudios } from '../model/estudios';
 
 
 @Component({
@@ -12,13 +14,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ResumeComponent implements OnInit {
   expe: Experiencia[] = [];
-  educacion:any=[];
-  trabajo:any=[];
+  edu: Estudios[] = [];
 
-  constructor(private sExperiencia: ExperienciaService, public router: Router, activatedroute: ActivatedRoute) { }
+  constructor(private sExperiencia: ExperienciaService, public router: Router, activatedroute: ActivatedRoute, private sEstudios: EstudiosService) { }
 
   ngOnInit(): void {
     this.cargarExperiencia();
+    this.cargarEstudios();
     
     /*this.portfolioService.obtenerDatos().subscribe(portfolio => {
       console.log(portfolio);
@@ -31,8 +33,12 @@ cargarExperiencia(): void{
     data => {this.expe = data;} );
 }
 
+cargarEstudios(): void{
+  this.sEstudios.lista().subscribe(
+    data => {this.edu = data;} );
+}
 
-
+//metodo delete de experiencia laboral
 delete(id:number){
   if(id !=undefined){
     this.sExperiencia.delete(id).subscribe(
@@ -47,6 +53,20 @@ delete(id:number){
   }
 }
 
+//metodo delete de estudios
 
+eliminar(id:number){
+  if(id !=undefined){
+    this.sEstudios.delete(id).subscribe(
+      data=>{
+        this.cargarEstudios();
+        window.location.reload();
+      }, err => {
+        alert ("failed to delete component")
+        window.location.reload();
+      }
+    )
+  }
+}
 
 }

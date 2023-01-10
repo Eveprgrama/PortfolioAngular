@@ -28,8 +28,8 @@ public class CSoftSkill {
        return soft.getSoftSkill();
     }
     
-    @GetMapping("/detail/id")
-    public ResponseEntity<SoftSkill> getById(@PathVariable ("id") int id) {
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<SoftSkill> getById(@PathVariable  int id) {
        if (!soft.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }

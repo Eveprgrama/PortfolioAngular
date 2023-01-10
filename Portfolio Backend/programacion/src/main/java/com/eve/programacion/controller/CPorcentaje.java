@@ -68,8 +68,8 @@ public class CPorcentaje {
         return servpor.findPorcentaje(id);
     }
     
-    @GetMapping("/detail/id")
-    public ResponseEntity<Porcentaje> getById(@PathVariable ("id") int id) {
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Porcentaje> getById(@PathVariable  int id) {
        if (!servpor.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }

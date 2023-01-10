@@ -75,8 +75,8 @@ public class CEstudios {
         return servedu.findEstudios(id);
     }
     
-    @GetMapping("/detail/id")
-    public ResponseEntity<Estudios> getById(@PathVariable ("id") int id) {
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Estudios> getById(@PathVariable int id) {
        if (!servedu.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }

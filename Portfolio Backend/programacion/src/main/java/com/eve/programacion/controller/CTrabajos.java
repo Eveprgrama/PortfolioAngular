@@ -70,8 +70,8 @@ public class CTrabajos {
         return trab;
         }
     
-     @GetMapping("/detail/id")
-    public ResponseEntity<Trabajos> getById(@PathVariable ("id") int id) {
+     @GetMapping("/detail/{id}")
+    public ResponseEntity<Trabajos> getById(@PathVariable  int id) {
        if (!servtrab.existsById(id)){
            return new ResponseEntity(HttpStatus.BAD_REQUEST);
        }

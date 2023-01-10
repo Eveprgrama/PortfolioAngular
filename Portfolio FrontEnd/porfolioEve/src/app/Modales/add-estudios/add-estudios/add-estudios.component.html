@@ -1,0 +1,46 @@
+<i class="fa-solid fa-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalnuevo4" *ngIf="this.router.url === '/dashboard'"></i> 
+<!--Modal crear nuevo-->
+<div class="modal" id="modalnuevo4" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Añadir Estudio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="nuevoEstu()" novalidate #f="ngForm" name="experienciaForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="mb-3">
+                <label for="img" class="form-label">Logo</label>
+                <input class="form-control form-control-sm" id="formFileSm" type="file" formControlname="img" id="img" [(ngModel)]="img">
+            </div>
+              <div class="mb-3">
+                <label for="instituto" class="form-label">Instituto</label>
+                <input class="form-control form-control-sm" id="instituto" formControlName="instituto" type="text" [(ngModel)]="instituto">
+              </div>
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label for="inicio" class="form-label">Año de inicio</label>
+                  <input class="form-control form-control-sm" id="inicio" formControlName="inicio" type="text" [(ngModel)]="inicio">
+                </div>
+                <div class="mb-3">
+                  <label for="fin" class="form-label">Año de fin</label>
+                  <input class="form-control form-control-sm" id="fin" formControlName="fin" type="text" [(ngModel)]="fin">
+                </div>
+                <div class="mb-3">
+                  <label for="especializacion" class="form-label">Especializacion</label>
+                  <textarea class="form-control" id="especializacion" formControlName="especializacion" rows="3" [(ngModel)]="especializacion"></textarea>
+                </div>
+                  <div class="mb-3">
+                    <label for="descripcionE" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3" [(ngModel)]="descripcion"></textarea>
+                  </div>
+                </div>   
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="limpiar()">Limpiar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+        </div>
+        </form>

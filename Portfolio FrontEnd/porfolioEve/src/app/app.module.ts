@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditEstudiosComponent } from './Modales/edit-estudios/edit-estudios/edit-estudios.component';
 import { AddexperienciaComponent } from './Modales/editresume-add/addexperiencia/addexperiencia.component';
 import { RouterModule } from '@angular/router';
+import { AddEstudiosComponent } from './Modales/add-estudios/add-estudios/add-estudios.component';
 
 
 
@@ -57,6 +58,7 @@ import { RouterModule } from '@angular/router';
       EditPortfolioComponent,
       EditEstudiosComponent,
       AddexperienciaComponent,
+      AddEstudiosComponent,
     
       
    ],

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-editresume',
@@ -12,7 +13,7 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 export class EditresumeComponent implements OnInit {
 expLab : Experiencia = null;
 form: FormGroup;
-  constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(public router: Router, private sExperiencia: ExperienciaService, private activatedrouter: ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient) {
     this.form= this.formBuilder.group({
       nombreE:[''],
       inicio:[''],
@@ -80,6 +81,9 @@ volver(event:Event){
   this.router.navigateByUrl('/dashboard');
 }
 
+openModal(id:number){
+  this.openModal;
+}
 
 
 }
