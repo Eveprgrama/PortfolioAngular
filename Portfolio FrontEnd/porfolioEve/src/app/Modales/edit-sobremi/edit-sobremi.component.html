@@ -1,18 +1,23 @@
-      <div class="container">
-       <form (ngSubmit)="onUpdate()" novalidate #f="ngForm"></form>
-       <div class="mb-3">
-              <label for="formFileSm" class="form-label">Url de Imagen Perfil</label>
-              <input class="form-control form-control-sm" id="formFileSm" type="file" formControlName="imagen" id="imagen" [(ngModel)]="smedit.imagen">
-            </div>
+<div class="container" *ngIf="smedit">
+  <div class="row">
+        <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" [formGroup]="form">
+          <div class="mb-3">
+            <div class="form group">
+              <label for="imagen" class="form-label">Foto Perfil</label>
+              <input class="form-control form-control-sm" id="imagen" type="text" formControlName="imagen" [(ngModel)]="smedit.imagen">
+          </div>
+        </div>
             <div class="mb-3">
-               <label for="exampleFormControlTextarea1" class="form-label">Sobre mí</label>
-               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="text" formControlName="texto" [(ngModel)]="smedit.texto"></textarea>
-             </div>
-      <div class="footer">
-        <button type="button" class="btn btn-secondary" (click)="Cancelar()">Cancelar</button>
-        <button type="button" class="btn btn-danger">Guardar Cambios</button>
-       </div>
-      </div>
+              <div class="form group">
+              <label for="texto" class="form-label">Descripción</label>
+              <textarea class="form-control form-control-sm" id="texto" formControlName="texto" type="text" [(ngModel)]="smedit.texto"></textarea>
+            </div>
+          </div>
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
+    </form>
+  </div>
+  </div>
     
    
 

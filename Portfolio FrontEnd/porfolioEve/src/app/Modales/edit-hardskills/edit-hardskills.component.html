@@ -1,25 +1,21 @@
-<i class="fa-solid fa-pencil" type="button" data-bs-toggle="modal" data-bs-target="#modal5" *ngIf="this.router.url === '/dashboard'"></i>
-<div class="modal" id="modal5" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container" *ngIf="hardskills">
+  <div class="row">
+        <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" [formGroup]="form">
+          <div class="mb-3">
+            <div class="form group">
+              <label for="titulo" class="form-label">Nombre de la Habilidad</label>
+              <input class="form-control form-control-sm" id="titulo" type="text" formControlName="titulo" [(ngModel)]="hardskills.titulo">
+          </div>
         </div>
-        <div class="modal-body">
-                 <div class="mb-3">
-                  <label for="formFileSm" class="form-label">Skill</label>
-                  <input class="form-control form-control-sm" id="formFileSm" type="text">
-                </div>
-                <div class="mb-3">
-                  <label for="formFileSm" class="form-label">Porcentaje</label>
-                  <input class="form-control form-control-sm" id="formFileSm" type="text">
-                </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-      </div>
-    </div>
-</div>
+            <div class="mb-3">
+              <div class="form group">
+              <label for="progreso" class="form-label">Nombre</label>
+              <input class="form-control form-control-sm" id="progreso" formControlName="progreso" type="text" [(ngModel)]="hardskills.progreso">
+            </div>
+          </div>
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
+    </form>
+  </div>
+  </div>
+    

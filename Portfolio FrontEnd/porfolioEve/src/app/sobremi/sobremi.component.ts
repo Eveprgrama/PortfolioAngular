@@ -12,7 +12,7 @@ import { SobremiService } from '../service/sobremi.service';
   styleUrls: ['./sobremi.component.css']
 })
 export class SobremiComponent implements OnInit {
-  sobremi:Sobremi = new Sobremi ("", "");
+  sobremi:Sobremi[] = [];
 
   constructor(private sobremiservice:SobremiService, public router: Router) { }
 
@@ -21,7 +21,7 @@ export class SobremiComponent implements OnInit {
   }
 
   cargarSobremi():void{
-    this.sobremiservice.getSobreMi().subscribe(data => 
+    this.sobremiservice.lista().subscribe(data => 
       {this.sobremi = data;})}
 
 }

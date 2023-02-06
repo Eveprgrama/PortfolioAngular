@@ -8,7 +8,7 @@
 <br>
 <br>
 <br>
-    <div class="container wrapabout">
+    <div class="container wrapabout" *ngFor="let sobre of sobremi">
         <div class="red"></div>
         <div class="row">
             <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
@@ -18,16 +18,16 @@
                             <h3>Sobre Mí</h3>
                         </div>
                         <p class="description-p text-muted pe-0 pe-lg-0">
-                            {{sobremi.texto}}
+                            {{ sobre.texto }}
                         </p>
-                        <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi/{{sobremi.id}} " *ngIf="this.router.url === '/dashboard'"></i>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <figure class="potoaboutwrap">
-                    <img  [src]="sobremi.imagen" alt="Yo" width="60%" rounded-border/>
+                    <img  [src]="sobre.imagen" alt="Yo" width="60%" rounded-border/>
                 </figure>
+                <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi/{{sobre.id}}" *ngIf="this.router.url === '/dashboard'"></i>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
@@ -13,18 +13,18 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   styleUrls: ['./addexperiencia.component.css']
 })
 export class AddexperienciaComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   nombreE:'';
   descripcionE:'';
   inicio:'';
   fin:'';
   localidad:'';
   img:'';
-  public formcontrol: FormControl;
+  public formcontrol: UntypedFormControl;
 
 
 
-  constructor(public router: Router, private sExperiencia: ExperienciaService, private FormBuilder: FormBuilder) { 
+  constructor(public router: Router, private sExperiencia: ExperienciaService, private FormBuilder: UntypedFormBuilder) { 
     this.form= this.FormBuilder.group({
       nombreE:['', [Validators.required]],
        descripcionE : [''],

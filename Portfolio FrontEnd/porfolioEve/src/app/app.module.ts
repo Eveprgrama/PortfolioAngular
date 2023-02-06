@@ -29,6 +29,7 @@ import { EditEstudiosComponent } from './Modales/edit-estudios/edit-estudios/edi
 import { AddexperienciaComponent } from './Modales/editresume-add/addexperiencia/addexperiencia.component';
 import { RouterModule } from '@angular/router';
 import { AddEstudiosComponent } from './Modales/add-estudios/add-estudios/add-estudios.component';
+import { NewskillComponent } from './Modales/edit-hardskills/newskill/newskill.component';
 
 
 
@@ -59,6 +60,7 @@ import { AddEstudiosComponent } from './Modales/add-estudios/add-estudios/add-es
       EditEstudiosComponent,
       AddexperienciaComponent,
       AddEstudiosComponent,
+      NewskillComponent,
     
       
    ],

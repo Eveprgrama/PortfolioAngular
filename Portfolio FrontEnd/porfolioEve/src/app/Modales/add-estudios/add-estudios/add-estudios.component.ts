@@ -11,12 +11,15 @@ import { EstudiosService } from 'src/app/service/estudios.service';
 })
 export class AddEstudiosComponent implements OnInit {
 form: FormGroup;
-img: string= '';
-instituto: string='';
-inicio: string='';
-fin: string='';
-especializacion: string='';
-descripcion: string='';
+estudios: Estudios ={
+img:'',
+instituto: '',
+inicio: '',
+fin: '',
+especializacion: '',
+descripcion: '',
+}
+submitted = false;
 public FormControl: FormControl;
 
   constructor(public router: Router, private sEstudios: EstudiosService, private FormBuilder: FormBuilder) {
@@ -56,17 +59,26 @@ public FormControl: FormControl;
     return this.form.get("img")
    }
 
-   nuevoEstu(): void{
-    const estu = new Estudios(this.img, this.instituto, this.inicio, this.fin, this.descripcion, this.especializacion);
-    this.sEstudios.save(estu).subscribe(
-      data=>{
-        console.log("agregada")
-      alert ("Estudio añadido")
-      window.location.reload();
-    }, err =>{
-      window.location.reload();
-    })
+   saveEstudio(): void {
+    const data = {
+      img: this.estudios.img,
+      instituto: this.estudios.instituto,
+      descripcion: this.estudios.descripcion,
+      inicio: this.estudios.inicio,
+      fin: this.estudios.fin,
+      especializacion: this.estudios.especializacion
     };
+    this.sEstudios.save(data).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.submitted = true;
+        window.location.reload();
+      }, error: (e) => 
+      window.location.reload()
+
+    });
+   }
+
     
      limpiar():void{
       this.form.reset();

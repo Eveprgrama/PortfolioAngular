@@ -1,32 +1,34 @@
-<i class="fa-solid fa-pencil" id="editbanner" type="button" data-bs-toggle="modal" data-bs-target="#modal1"  *ngIf="this.router.url === '/dashboard'">
-</i>
-<div class="modal" id="modal1" tabindex="-1">
-   <div class="modal-dialog">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title">Editar</h5>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       </div>
-       <form (ngSubmit)="onUpdate()">
-       <div class="modal-body">
-           <div class="mb-3">
-            <label for="formFileSm" class="form-label">Nombre</label>
-               <input class="form-control form-control-sm" id="nombre" name="nombre" type="text" [(ngModel)]="Persona.nombre" required >
-               <label for="formFileSm" class="form-label">Apellido</label>
-               <input class="form-control form-control-sm" id="apellido" name="apellido" type="text" [(ngModel)]="Persona.apellido" required>
-               <label for="formFileSm" class="form-label">Imagen Header</label>
-               <input class="form-control form-control-sm" id="img" name="name" type="file" [(ngModel)]="Persona.img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
-             </div> 
-             <div class="mb-3">
-               <label for="formFileSm" class="form-label">Título</label>
-               <input class="form-control form-control-sm" id="titulo"  name="titulo" type="text" [(ngModel)]="Persona.titulo" required>
-             </div>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
-         <button type="button" class="btn btn-primary" id="end_editing">Guardar Cambios</button>
-       </div>
-       </form>
-     </div>
-</div>
-</div>
+
+<div class="container" *ngIf="persona">
+  <div class="row">
+        <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" [formGroup]="form">
+          <div class="mb-3">
+            <div class="form group">
+              <label for="img" class="form-label">Foto Banner</label>
+              <input class="form-control form-control-sm" id="img" type="text" formControlName="img" [(ngModel)]="persona.img">
+          </div>
+        </div>
+            <div class="mb-3">
+              <div class="form group">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input class="form-control form-control-sm" id="nombre" formControlName="nombre" type="text" [(ngModel)]="persona.nombre">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form group">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input class="form-control form-control-sm" id="apellido" formControlName="apellido" type="text" [(ngModel)]="persona.apellido">
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form group">
+          <label for="titulo" class="form-label">Titulo</label>
+          <input class="form-control form-control-sm" id="titulo" formControlName="titulo" type="text" [(ngModel)]="persona.titulo">
+        </div>
+      </div>
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
+    </form>
+  </div>
+  </div>
+    

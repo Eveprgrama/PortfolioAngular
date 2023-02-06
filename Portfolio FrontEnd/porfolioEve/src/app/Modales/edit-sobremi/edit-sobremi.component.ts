@@ -1,9 +1,10 @@
 import {  ChangeDetectionStrategy, Component, EventEmitter, 
   Input, OnInit, OnChanges, Output, SimpleChanges} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sobremi } from 'src/app/model/sobremi';
 import { SobremiService } from 'src/app/service/sobremi.service';
+import { HttpClient } from '@angular/common/http'
 
 
 @Component({
@@ -14,12 +15,12 @@ import { SobremiService } from 'src/app/service/sobremi.service';
 export class EditSobremiComponent implements OnInit {
   smedit: Sobremi = null; 
   
-  form: FormGroup;
+  form: UntypedFormGroup;
  
-  constructor(public router: Router, private ssobremi: SobremiService, private activatedRouter: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(public router: Router, private ssobremi: SobremiService, private activatedRouter: ActivatedRoute, private formBuilder: UntypedFormBuilder, private httpclient: HttpClient) {
     this.form = this.formBuilder.group({
-      imagen: ['', Validators.required],
-      texto: ['', Validators.required],
+      imagen: [''],
+      texto: [''],
      
   });
  
@@ -30,41 +31,41 @@ export class EditSobremiComponent implements OnInit {
     this.ssobremi.detail(id).subscribe(
       data=>{
         this.smedit = data;
-      }, err=>{
-        alert ("error al modificar")
       }
       )
   }
+  get Imagen() {
+    return this.form.get("imagen")
+   }
 
-  onUpdate(){
+   get Texto() {
+    return this.form.get("texto")
+   }
+
+  onUpdate():void{
    const id = this.activatedRouter.snapshot.params['id'];
    this.ssobremi.update(id, this.smedit).subscribe(
     data=>{
-      this.router.navigate(['']);
+      this.router.navigateByUrl('/dashboard');
     }, err => {
-      alert("error al modificar");
-      this.router.navigate(['']);
+      this.router.navigateByUrl('/dashboard');
     }
    )
 
   }
 
-  uploadImage($event:any){
-
+  onEnviar(event: Event){
+    event.preventDefault; 
+   if (this.form.valid){
+      alert("Todo salio bien ¡Enviar formuario!")
+    }else{    
+      this.form.markAllAsTouched(); 
+    }
   }
- /* onUpdate(): void{
-    this.ssobremi.update(1, this.smedit).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err => {
-        alert("Couldn't create component")
-        this.router.navigate(['']);
-      }
-    )
-  }*/
-Cancelar(){
-  this.router.navigateByUrl('dashboard');
-}
+
+    volver(event:Event){
+      this.router.navigateByUrl('/dashboard');
+    }
 }
 
 

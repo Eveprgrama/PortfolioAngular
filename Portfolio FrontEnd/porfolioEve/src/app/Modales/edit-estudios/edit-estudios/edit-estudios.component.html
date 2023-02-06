@@ -1,36 +1,44 @@
-<i class="fa-solid fa-pencil" type="button" data-bs-toggle="modal" data-bs-target="#modalestudio" *ngIf="this.router.url === '/dashboard'"></i> 
-<!--Modal Tres-->
-<div class="modal" id="modalestudio" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container" *ngIf="estudio">
+  <div class="row">
+        <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" [formGroup]="form">
+          <div class="mb-3">
+            <div class="form group">
+              <label for="img" class="form-label">Logo</label>
+              <input class="form-control form-control-sm" id="img" type="text" formControlName="img" [(ngModel)]="estudio.img">
+          </div>
         </div>
-        <div class="modal-body">
             <div class="mb-3">
-                <label for="formFileSm" class="form-label">Logo</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file">
+              <div class="form group">
+              <label for="instituto" class="form-label">Nombre del Instituto</label>
+              <input class="form-control form-control-sm" id="instituto" formControlName="instituto" type="text" [(ngModel)]="estudio.instituto">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form group">
+              <label for="inicio" class="form-label">Especializacion</label>
+              <input class="form-control form-control-sm" id="especializacion" formControlName="especializacion" type="text" [(ngModel)]="estudio.especializacion">
+            </div>
+          </div>
+            <div class="mb-3">
+              <div class="form group">
+                <label for="inicio" class="form-label">Año de inicio</label>
+                <input class="form-control form-control-sm" id="inicio" formControlName="inicio" type="text" [(ngModel)]="estudio.inicio">
               </div>
+            </div>
               <div class="mb-3">
-                <label for="formFileSm" class="form-label">Titulo</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="text">
+                <div class="form group">
+                <label for="fin" class="form-label">Año de fin</label>
+                <input class="form-control form-control-sm" id="fin" formControlName="fin" type="text" [(ngModel)]="estudio.fin">
               </div>
-              <div class="mb-3">
+            </div>
                 <div class="mb-3">
-                  <label for="formFileSm" class="form-label">Años</label>
-                  <input class="form-control form-control-sm" id="formFileSm" type="text">
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
+                  <div class="form group">
+                  <label for="descripcion" class="form-label">Descripción</label>
+                  <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3" [(ngModel)]="estudio.descripcion"></textarea>
                 </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-        </div>
-      </div>
-    </div>
-</div>
+              </div>    
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
+    </form>
+  </div>
+  </div>

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/service/persona.service';
 import { FormsModule } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-edit-banner',
@@ -11,35 +13,50 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./edit-banner.component.css']
 })
 export class EditBannerComponent implements OnInit {
- Persona: Persona = new Persona ("","","","");
-  constructor(public router: Router, private activatedRouter: ActivatedRoute, private Personaservice: PersonaService) { }
+ persona: Persona = null;
+ form: UntypedFormGroup;
+
+  constructor(public router: Router, private activatedRouter: ActivatedRoute, private Personaservice: PersonaService, private formBuilder: UntypedFormBuilder, private httpCliente: HttpClient) {
+    this.form = this.formBuilder.group({
+      img:[''],
+      nombre:[''],
+      apellido:[''],
+      titulo:[''],
+    })
+
+   }
 
   ngOnInit(): void {
-   /* const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.activatedRouter.snapshot.params['id'];
     this.Personaservice.detail(id).subscribe(
       data =>{
-        this.Persona = data;
-      }, err =>{
-        alert("Error al modificar");
-        this.router.navigate(['']);
-      }
-    )*/
+        this.persona = data;
+      })
   }
 
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
-    this.Personaservice.update(id, this.Persona).subscribe(
-      data => {
-        this.router.navigate(['']);
+    this.Personaservice.update(id, this.persona).subscribe(
+      data=>{
+        this.router.navigateByUrl('/dashboard');
       }, err =>{
-        alert("Error al modificar la educacion");
-        this.router.navigate(['']);
+        this.router.navigateByUrl('/dashboard');
       }
     )
-
   }
-  uploadImage($event:any){
 
+  
+  onEnviar(event: Event){
+    event.preventDefault; 
+   if (this.form.valid){
+      alert("Todo salio bien ¡Enviar formuario!")
+    }else{    
+      this.form.markAllAsTouched(); 
+    }
   }
+
+    volver(event:Event){
+      this.router.navigateByUrl('/dashboard');
+    }
 }
 

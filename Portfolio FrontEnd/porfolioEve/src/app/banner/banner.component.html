@@ -1,12 +1,15 @@
 <!--  Banner Section -->
-<section id="hero" class="d-flex align-items-center" [style.backgroundImage]="persona.img" [style.backgroundSize]="'cover'" >
+<section id="hero" *ngFor="let personas of persona" >
+  <div  class="d-flex align-items-center" [style.backgroundImage]="'url(' + personas.img + ')'" [style.backgroundSize]="'cover'">
     <div class="container d-flex flex-column align-items-center">
-      <h1> {{persona.nombre}} {{persona.apellido}} </h1>
-      <h2>{{persona.titulo}}</h2>
+      <h1> {{personas.nombre}} {{personas.apellido}} </h1>
+      <h2>{{personas.titulo}}</h2>
       <button type="button" class="btn btn-secondary btn-lg rounded-2"> <a (click)="scrollToElement('#footer')"> Contactame! </a> </button>
       <br>
-      <app-edit-banner></app-edit-banner>
+      <td routerLinkActive="active">
+        <i class="fa-solid fa-pencil" type="button" *ngIf="this.router.url === '/dashboard'" routerLink="/editbanner/{{personas.id}}"></i></td>
     </div>
+  </div>
   </section>
   <!-- End Banner -->
 <!--'url('+img+')'-->
