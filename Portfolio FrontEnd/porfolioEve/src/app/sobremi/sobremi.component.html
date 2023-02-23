@@ -27,7 +27,7 @@
                 <figure class="potoaboutwrap">
                     <img  [src]="sobre.imagen" alt="Yo" width="60%" rounded-border/>
                 </figure>
-                <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi/{{sobre.id}}" *ngIf="this.router.url === '/dashboard'"></i>
+                <i class="fa-solid fa-pencil" id="editsobremi" type="button" routerLink="/editsobremi/{{sobre.id}}" *ngIf="isLogged"></i>
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ export class SoftskillsService {
   constructor(private httpCliente: HttpClient) { }
 
   public lista(): Observable<Softskills[]>{
-    return this.httpCliente.get<Softskills[]>(this.url + 'lista');
+    return this.httpCliente.get<Softskills[]>(this.url + 'traer');
   }
 
    public detail(id: number): Observable<Softskills>{

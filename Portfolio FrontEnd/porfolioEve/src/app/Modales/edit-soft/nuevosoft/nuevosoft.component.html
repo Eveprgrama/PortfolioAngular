@@ -1,6 +1,6 @@
-<i class="fa-solid fa-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalnuevo5" *ngIf="isLogged"></i> 
+<i class="fa-solid fa-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalnuevo6" *ngIf="isLogged"></i> 
 <!--Modal crear nuevo-->
-<div class="modal" id="modalnuevo5" tabindex="-1">
+<div class="modal" id="modalnuevo6" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -10,13 +10,19 @@
         <form [formGroup]="form" (ngSubmit)="submitData()" novalidate #f="ngForm" name="experienciaForm">
         <div class="modal-body">
               <div class="mb-3">
-                <label for="titulo" class="form-label">Nombre de la Habilidad</label>
-                <input class="form-control form-control-sm" id="titulo" formControlName="titulo" type="text" [(ngModel)]="titulo">
+                <label for="habilidad" class="form-label">Nombre de la Habilidad</label>
+                <input class="form-control form-control-sm" id="habilidad" formControlName="habilidad" type="text" [(ngModel)]="habilidad">
               </div>
               <div class="mb-3">
                 <div class="mb-3">
-                  <label for="progreso" class="form-label">Nivel de Progreso</label>
-                  <input class="form-control form-control-sm" id="progreso" formControlName="progreso" type="text" [(ngModel)]="progreso" required>
+                  <label for="imagen" class="form-label">Url de la Imagen</label>
+                  <input class="form-control form-control-sm" id="imagen" formControlName="imagen" type="text" [(ngModel)]="imagen">
+                </div>
+              </div>  
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label for="descripcion" class="form-label">Descripcion</label>
+                  <input class="form-control form-control-sm" id="descripcion" formControlName="descripcion" type="text" [(ngModel)]="descripcion">
                 </div>
               </div>  
         <div class="modal-footer">

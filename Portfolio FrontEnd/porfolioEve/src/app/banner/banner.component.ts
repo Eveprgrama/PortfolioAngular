@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Persona } from '../model/persona';
 import { PersonaService } from '../service/persona.service';
+import { TokenService } from '../service/token.service';
 
 
 @Component({
@@ -12,14 +13,17 @@ import { PersonaService } from '../service/persona.service';
 })
 export class BannerComponent implements OnInit {
   persona: Persona [] = [];
-  //inicializar variables de instancia
-// img : string = ""; esto es para el json
+  isLogged=false;
 
-
-  constructor(public personaService: PersonaService, public router: Router) { }
+  constructor(public personaService: PersonaService, public router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.cargarPersona();
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   cargarPersona():void{

@@ -4,38 +4,25 @@
     <div  class="container">
       <div class="section-title">
         <h2>Soft Skills</h2>
+        <app-nuevosoft></app-nuevosoft>
         <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
         <br>
       </div>
       <div  class="row">
-        <div *ngFor="let habilidad of habilidadesuno" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div *ngFor="let habilidad of habilidades" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box">
             <div class="icon"><i [class]="habilidad.imagen" style="color: #b4b6b3;"></i></div>
-            <h4 class="title"><a href="">{{habilidad.titulo}}</a></h4>
+            <h4 class="title"><a href="">{{habilidad.habilidad}}</a></h4>
             <p class="description">{{habilidad.descripcion}}</p>
-            <app-edit-soft></app-edit-soft>
+            <td routerLinkActive="active">
+              <i class="fa-solid fa-pencil" type="button" *ngIf="isLogged" routerLink="/editsoftskills/{{habilidad.id}}"></i> <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="isLogged" (click)="delete(habilidad.id)"></i></td>
             <br>
-            
-          </div>
-        </div>
-      </div>
-      <br>
-      <div  class="container">
-        <div class="row">
-          <div *ngFor="let habilidades of habilidadesdos" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i [class]="habilidades.imagen" style="color: #b4b6b3;"></i></div>
-              <h4 class="title"><a href="">{{habilidades.titulo}}</a></h4>
-              <p class="description">{{habilidades.descripcion}}.</p>
-              <app-edit-soft></app-edit-soft>
-              <br>
-              
             </div>
-          </div>
         </div>
       </div>
-      </div>
+    </div>
 </section>
+       
 
   <!-- End Soft Skills Section -->
   <br>

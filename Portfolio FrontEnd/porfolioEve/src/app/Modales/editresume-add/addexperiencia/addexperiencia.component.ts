@@ -3,9 +3,8 @@ import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } 
 import { Route, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/internal/operators/catchError';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { TokenService } from 'src/app/service/token.service';
+
 
 @Component({
   selector: 'app-addexperiencia',
@@ -21,10 +20,10 @@ export class AddexperienciaComponent implements OnInit {
   localidad:'';
   img:'';
   public formcontrol: UntypedFormControl;
+  isLogged=false;
 
 
-
-  constructor(public router: Router, private sExperiencia: ExperienciaService, private FormBuilder: UntypedFormBuilder) { 
+  constructor(public router: Router, private sExperiencia: ExperienciaService, private FormBuilder: UntypedFormBuilder, private tokenService: TokenService) { 
     this.form= this.FormBuilder.group({
       nombreE:['', [Validators.required]],
        descripcionE : [''],
@@ -36,6 +35,11 @@ export class AddexperienciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    } else {
+      this.isLogged = false;
+    }
   }
   //declaracion para las validaciones 
   get NombreE() {

@@ -6,7 +6,7 @@
           <div class="title-box text-center">
             <h3 class="title-a">
               Mis Trabajos
-            </h3>
+            </h3> <app-nuevotrabajo></app-nuevotrabajo>
             <p class="subtitle-a">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </p>
@@ -34,7 +34,8 @@
                   <div class="w-like">
                     <a [href]="trabajo.url"> <span class="bi bi-plus-circle"></span></a>
                   </div>
-                  <app-edit-portfolio></app-edit-portfolio>
+                  <td routerLinkActive="active">
+                    <i class="fa-solid fa-pencil" type="button" *ngIf="isLogged" routerLink="/edittrabajos/{{trabajo.id}}"></i> <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="isLogged" (click)="delete(trabajo.id)"></i></td>
                   <br>
                 </div>
               </div>

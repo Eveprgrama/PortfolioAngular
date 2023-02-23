@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EstudiosService } from '../service/estudios.service';
 import { Estudios } from '../model/estudios';
+import { TokenService } from '../service/token.service';
 
 
 @Component({
@@ -15,18 +16,18 @@ import { Estudios } from '../model/estudios';
 export class ResumeComponent implements OnInit {
   expe: Experiencia[] = [];
   edu: Estudios[] = [];
+  isLogged=false;
 
-  constructor(private sExperiencia: ExperienciaService, public router: Router, activatedroute: ActivatedRoute, private sEstudios: EstudiosService) { }
+  constructor(private sExperiencia: ExperienciaService, public router: Router, activatedroute: ActivatedRoute, private sEstudios: EstudiosService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.cargarExperiencia();
     this.cargarEstudios();
-    
-    /*this.portfolioService.obtenerDatos().subscribe(portfolio => {
-      console.log(portfolio);
-      this.educacion = portfolio.educacion;
-      this.trabajo = portfolio.trabajo;
-     });*/
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    } else {
+      this.isLogged = false;
+    }
   }
 cargarExperiencia(): void{
   this.sExperiencia.lista().subscribe(

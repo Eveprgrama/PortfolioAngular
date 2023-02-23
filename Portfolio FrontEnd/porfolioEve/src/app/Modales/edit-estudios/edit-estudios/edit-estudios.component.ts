@@ -60,9 +60,9 @@ form: UntypedFormGroup;
     const id = this.activatedrouter.snapshot.params['id'];
     this.sEstudios.update(id, this.estudio).subscribe(
       data=>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }, err =>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }
     )
   }
@@ -78,7 +78,7 @@ form: UntypedFormGroup;
   }
   
   volver(event:Event){
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/index');
   }
   
 }

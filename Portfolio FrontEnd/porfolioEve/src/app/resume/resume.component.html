@@ -16,7 +16,7 @@
             <h5>{{escuelas.inicio}} - {{escuelas.fin}}</h5>
             <p><em>{{escuelas.descripcion}}</em></p>
             <p>{{escuelas.especializacion}} <br>
-              <i class="fa-solid fa-pencil" type="button" data-bs-toggle="modal" data-bs-target="#modalestudio" *ngIf="this.router.url === '/dashboard'" routerLink="/editestu/{{escuelas.id}}"></i>  <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="this.router.url === '/dashboard'" (click)="eliminar(escuelas.id)"></i></p>
+              <i class="fa-solid fa-pencil" type="button" data-bs-toggle="modal" data-bs-target="#modalestudio" *ngIf="isLogged" routerLink="/editestu/{{escuelas.id}}"></i>  <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="isLogged" (click)="eliminar(escuelas.id)"></i></p>
           </div>
         </div>
           
@@ -31,7 +31,7 @@
               <li>{{Experiencia.descripcionE}}</li>
                <br>
                <td routerLinkActive="active">
-                <i class="fa-solid fa-pencil" type="button" *ngIf="this.router.url === '/dashboard'" routerLink="/editexp/{{Experiencia.id}}"></i> <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="this.router.url === '/dashboard'" (click)="delete(Experiencia.id)"></i></td>
+                <i class="fa-solid fa-pencil" type="button" *ngIf="isLogged" routerLink="/editexp/{{Experiencia.id}}"></i> <br> <i class="fa-regular fa-trash-can"  type="button" *ngIf="isLogged" (click)="delete(Experiencia.id)"></i></td>
             </ul>
           </div>
         </div>

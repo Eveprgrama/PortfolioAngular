@@ -38,9 +38,9 @@ export class EditBannerComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     this.Personaservice.update(id, this.persona).subscribe(
       data=>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }, err =>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }
     )
   }
@@ -56,7 +56,7 @@ export class EditBannerComponent implements OnInit {
   }
 
     volver(event:Event){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }
 }
 

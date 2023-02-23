@@ -34,9 +34,9 @@ export class EditHardskillsComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     this.Hardskillservice.update(id, this.hardskills).subscribe(
       data=>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }, err =>{
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/index');
       }
     )
   }
@@ -51,7 +51,7 @@ export class EditHardskillsComponent implements OnInit {
   }
 
     volver(event:Event){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }
 
 }

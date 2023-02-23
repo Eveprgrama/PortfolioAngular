@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Sobremi } from '../model/sobremi';
 import { SobremiService } from '../service/sobremi.service';
-
+import { TokenService } from '../service/token.service';
 
 
 
@@ -13,11 +13,17 @@ import { SobremiService } from '../service/sobremi.service';
 })
 export class SobremiComponent implements OnInit {
   sobremi:Sobremi[] = [];
+  isLogged=false;
 
-  constructor(private sobremiservice:SobremiService, public router: Router) { }
+  constructor(private sobremiservice:SobremiService, public router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-   this.cargarSobremi()
+   this.cargarSobremi();
+   if(this.tokenService.getToken()){
+    this.isLogged= true;
+  } else {
+    this.isLogged = false;
+  }
   }
 
   cargarSobremi():void{

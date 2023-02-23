@@ -1,37 +1,39 @@
-<i class="fa-solid fa-pencil" type="button" data-bs-toggle="modal" data-bs-target="#modal7" *ngIf="this.router.url === '/dashboard'"></i>
-<div class="modal" id="modal7" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container" *ngIf="trabajos">
+  <div class="row">
+        <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" [formGroup]="form">
+          <div class="mb-3">
+            <div class="form group">
+              <label for="imagen" class="form-label">Url de la Imagen</label>
+              <input class="form-control form-control-sm" id="imagen" type="text" formControlName="imagen" [(ngModel)]="trabajos.imagen">
+          </div>
         </div>
-        <div class="modal-body">
             <div class="mb-3">
-                <label for="formFileSm" class="form-label">Imagen</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file">
-              </div>
-              <div class="mb-3">
-                <label for="formFileSm" class="form-label">Nombre Proyecto</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="text">
-              </div>
-              <div class="mb-3">
-                <div class="mb-3">
-                  <label for="formFileSm" class="form-label">Años</label>
-                  <input class="form-control form-control-sm" id="formFileSm" type="text">
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="formFileSm" class="form-label">Link proyecto</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="link">
+              <div class="form group">
+              <label for="pagina" class="form-label">Nombre de la Pagina</label>
+              <input class="form-control form-control-sm" id="pagina" formControlName="pagina" type="text" [(ngModel)]="trabajos.pagina">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form group">
+            <label for="categoria" class="form-label">Categoria</label>
+            <input class="form-control form-control-sm" id="categoria" formControlName="categoria" type="text" [(ngModel)]="trabajos.categoria">
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar Cambios</button>
+        <div class="mb-3">
+          <div class="form group">
+          <label for="fecha" class="form-label">Fecha de creación</label>
+          <input class="form-control form-control-sm" id="fecha" formControlName="fecha" type="text" [(ngModel)]="trabajos.fecha">
         </div>
       </div>
+      <div class="mb-3">
+        <div class="form group">
+        <label for="url" class="form-label">Url de la Página</label>
+        <input class="form-control form-control-sm" id="url" formControlName="url" type="text" [(ngModel)]="trabajos.url">
+      </div>
     </div>
+        <button type="button" class="btn btn-secondary" (click)="volver($event)" >Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="onEnviar($event)" >Actualizar</button>
+    </form>
   </div>
-</div>
+  </div>
+    

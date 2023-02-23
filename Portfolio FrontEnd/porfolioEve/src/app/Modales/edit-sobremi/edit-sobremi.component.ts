@@ -46,9 +46,9 @@ export class EditSobremiComponent implements OnInit {
    const id = this.activatedRouter.snapshot.params['id'];
    this.ssobremi.update(id, this.smedit).subscribe(
     data=>{
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }, err => {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }
    )
 
@@ -64,7 +64,7 @@ export class EditSobremiComponent implements OnInit {
   }
 
     volver(event:Event){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }
 }
 

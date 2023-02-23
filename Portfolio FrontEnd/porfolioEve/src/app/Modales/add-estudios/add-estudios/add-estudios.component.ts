@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Route, Router } from '@angular/router';
 import { Estudios } from 'src/app/model/estudios';
 import { EstudiosService } from 'src/app/service/estudios.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-add-estudios',
@@ -20,9 +21,10 @@ especializacion: '',
 descripcion: '',
 }
 submitted = false;
+isLogged=false;
 public FormControl: FormControl;
 
-  constructor(public router: Router, private sEstudios: EstudiosService, private FormBuilder: FormBuilder) {
+  constructor(public router: Router, private sEstudios: EstudiosService, private FormBuilder: FormBuilder, private tokenService: TokenService) {
     this.form= this.FormBuilder.group({
       img: [''],
       instituto:[''],
@@ -34,6 +36,11 @@ public FormControl: FormControl;
    }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    } else {
+      this.isLogged = false;
+    }
   }
   get Instituto() {
     return this.form.get("instituto")

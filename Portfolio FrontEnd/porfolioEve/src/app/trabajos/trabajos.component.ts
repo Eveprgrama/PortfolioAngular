@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EditPortfolioComponent } from '../Modales/edit-portfolio/edit-portfolio.component'; 
-import { PortfolioService } from '../Servicios/portfolio.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Trabajos } from '../model/trabajos';
+import { TrabajosService } from '../service/trabajos.service';
+import { TokenService } from '../service/token.service';
+
 
 @Component({
   selector: 'app-trabajos',
@@ -8,15 +11,35 @@ import { PortfolioService } from '../Servicios/portfolio.service';
   styleUrls: ['./trabajos.component.css']
 })
 export class TrabajosComponent implements OnInit {
-  worklist:any;
+  worklist:Trabajos[] = [];
+  isLogged=false;
 
-  constructor(private portfolioService:PortfolioService) { }
+  constructor(private sTrabajos: TrabajosService, public router: Router, activatedroute: ActivatedRoute, private tokenService: TokenService) { }
 
   ngOnInit(): void{
-    this.portfolioService.obtenerDatos().subscribe(portfolio => {
-      console.log(portfolio);
-      this.worklist = portfolio.trabajos;
-     });
+    this.cargarTrabajos();
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    } else {
+      this.isLogged = false;
+    }
+  }
+  cargarTrabajos(): void {
+    this.sTrabajos.lista().subscribe(data =>
+      {this.worklist = data});
+  }
+
+  delete(id:number){
+    if(id !=undefined){
+      this.sTrabajos.delete(id).subscribe(
+        data=>{
+          this.cargarTrabajos();
+          window.location.reload();
+        }, err => {
+          window.location.reload();
+        }
+      )
+    }
   }
 
 }

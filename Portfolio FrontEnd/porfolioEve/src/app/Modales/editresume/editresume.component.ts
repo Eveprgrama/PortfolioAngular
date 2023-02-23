@@ -60,9 +60,9 @@ onUpdate(): void{
   const id = this.activatedrouter.snapshot.params['id'];
   this.sExperiencia.update(id, this.expLab).subscribe(
     data=>{
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }, err =>{
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/index');
     }
   )
 }
@@ -78,7 +78,7 @@ onEnviar(event: Event){
 }
 
 volver(event:Event){
-  this.router.navigateByUrl('/dashboard');
+  this.router.navigateByUrl('/index');
 }
 
 

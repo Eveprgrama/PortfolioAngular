@@ -30,6 +30,11 @@ import { AddexperienciaComponent } from './Modales/editresume-add/addexperiencia
 import { RouterModule } from '@angular/router';
 import { AddEstudiosComponent } from './Modales/add-estudios/add-estudios/add-estudios.component';
 import { NewskillComponent } from './Modales/edit-hardskills/newskill/newskill.component';
+import { NuevosoftComponent } from './Modales/edit-soft/nuevosoft/nuevosoft.component';
+import { NuevotrabajoComponent } from './Modales/edit-portfolio/nuevotrabajo/nuevotrabajo.component';
+import { interceptorProvider } from './service/interceptor.service';
+import { RegistroComponent } from './Modales/registro/registro/registro.component';
+
 
 
 
@@ -61,6 +66,9 @@ import { NewskillComponent } from './Modales/edit-hardskills/newskill/newskill.c
       AddexperienciaComponent,
       AddEstudiosComponent,
       NewskillComponent,
+      NuevosoftComponent,
+      NuevotrabajoComponent,
+      RegistroComponent,
     
       
    ],
@@ -73,7 +81,9 @@ import { NewskillComponent } from './Modales/edit-hardskills/newskill/newskill.c
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

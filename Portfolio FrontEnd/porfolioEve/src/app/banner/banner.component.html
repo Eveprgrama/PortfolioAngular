@@ -7,7 +7,7 @@
       <button type="button" class="btn btn-secondary btn-lg rounded-2"> <a (click)="scrollToElement('#footer')"> Contactame! </a> </button>
       <br>
       <td routerLinkActive="active">
-        <i class="fa-solid fa-pencil" type="button" *ngIf="this.router.url === '/dashboard'" routerLink="/editbanner/{{personas.id}}"></i></td>
+        <i class="fa-solid fa-pencil" type="button" *ngIf="isLogged" routerLink="/editbanner/{{personas.id}}"></i></td>
     </div>
   </div>
   </section>
