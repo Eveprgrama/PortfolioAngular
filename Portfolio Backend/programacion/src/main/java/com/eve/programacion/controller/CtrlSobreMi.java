@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -47,24 +46,15 @@ public class CtrlSobreMi {
         return "Sobre mí fue borrado correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public SobreMi editSobreMi (@PathVariable int id,
-                                @RequestParam("texto") String nuevoTexto,
-                                @RequestParam("imagen") String nuevaImagen)
-                                 {
-        //busco la experiencia en cuestion
-        SobreMi acerca = intsm.findSobreMi(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        acerca.setTexto(nuevoTexto);
-        acerca.setImagen(nuevaImagen);
-        
-        
-        intsm.saveSobreMi(acerca);
-        //reconoce la nueva Persona
-        return acerca;
-        }
+  @PutMapping("/editar/{id}")
+	public SobreMi updateSobreMi(@PathVariable("id") int id, @RequestBody SobreMi sobremi) {
+			SobreMi _sobre = intsm.findSobreMi(id);
+                        _sobre.setImagen(sobremi.getImagen());
+			_sobre.setTexto(sobremi.getTexto());
+			intsm.saveSobreMi(_sobre);
+                        return _sobre;
+		
+	}
     
      @GetMapping("/detail/{id}")
     public ResponseEntity<SobreMi> getById(@PathVariable int id) {
@@ -77,7 +67,7 @@ public class CtrlSobreMi {
 
 
     @GetMapping("mostrar")
-    public SobreMi findSobreMi() {
-        return intsm.findSobreMi((int)1);
+    public SobreMi findSobreMi(@PathVariable int id) {
+        return intsm.findSobreMi(id);
     }
     }

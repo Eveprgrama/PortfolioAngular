@@ -15,8 +15,8 @@ public class SvSobreMi {
     
      
     public List<SobreMi> getSobreMi() {
-        List<SobreMi> experiencias = smi.findAll();
-        return experiencias;
+        List<SobreMi> sobremi = smi.findAll();
+        return sobremi;
     }
     
     

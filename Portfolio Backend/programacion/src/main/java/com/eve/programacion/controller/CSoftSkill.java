@@ -52,26 +52,16 @@ public class CSoftSkill {
         return "La habilidad fue borrada correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public SoftSkill editSoftSkill (@PathVariable int id,
-                                @RequestParam("habilidad") String nuevaHabilidad,
-                                @RequestParam("imagen") String nuevaImagen,
-                                @RequestParam("descripcion") String nuevaDescripcion
-                               ) {
-        //busco la persona en cuestion
-        SoftSkill skill = soft.findSoftSkill(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        skill.setHabilidad(nuevaHabilidad);
-        skill.setImagen(nuevaImagen);
-        skill.setDescripcion(nuevaDescripcion);
-        
-        
-        soft.saveSoftSkill(skill);
-        //reconoce la nueva SoftSkill
-        return skill;
-        }
+    @PutMapping("/editar/{id}")
+	public SoftSkill updateSoftSkill(@PathVariable("id") int id, @RequestBody SoftSkill softskill) {
+			SoftSkill _soft = soft.findSoftSkill(id);
+                        _soft.setHabilidad(softskill.getHabilidad());
+			_soft.setImagen(softskill.getImagen());
+                        _soft.setDescripcion(softskill.getDescripcion());
+			soft.saveSoftSkill(_soft);
+                        return _soft;
+		
+	}
      @GetMapping("mostrar")
     public SoftSkill findSoftSkill(@PathVariable int id) {
         return soft.findSoftSkill(id);

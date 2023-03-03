@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -45,23 +44,15 @@ public class CPorcentaje {
         return "La Habilidad fue borrada correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public Porcentaje editPorcentaje (@PathVariable int id,
-                                @RequestParam("titulo") String nuevoTitulo,
-                                @RequestParam("progreso") int nuevoProgreso) {
-        //busco la experiencia en cuestion
-        Porcentaje porce = servpor.findPorcentaje(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        porce.setTitulo(nuevoTitulo);
-        porce.setProgreso(nuevoProgreso);
-       
-        
-        servpor.savePorcentaje(porce);
-        //reconoce la nueva Persona
-        return porce;
-        }
+    @PutMapping("/editar/{id}")
+	public Porcentaje updatePorcentaje(@PathVariable("id") int id, @RequestBody Porcentaje porcentaje) {
+			Porcentaje _por = servpor.findPorcentaje(id);
+                        _por.setTitulo(porcentaje.getTitulo());
+			_por.setProgreso(porcentaje.getProgreso());
+			servpor.savePorcentaje(_por);
+                        return _por;
+		
+	}
     
     @GetMapping("mostrar")
     public Porcentaje findPorcentaje(@PathVariable int id) {

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -46,30 +45,19 @@ public class CExperiencia {
         return "La experiencia fue borrada correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public Experiencia editExperiencia (@PathVariable int id,
-                                @RequestParam("nombreE") String nuevoNombreE,
-                                @RequestParam("descripcionE") String nuevaDescripcion,
-                                @RequestParam("inicio") String nuevoInicio,
-                                @RequestParam("fin") String nuevoFin,
-                                @RequestParam("localidad") String nuevaLocalidad,
-                                @RequestParam("img") String nuevaImagen) {
-        //busco la experiencia en cuestion
-        Experiencia expe = servexp.findExperiencia(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        expe.setNombreE(nuevoNombreE);
-        expe.setDescripcionE(nuevaDescripcion);
-        expe.setInicio(nuevoInicio);
-        expe.setFin(nuevoFin);
-        expe.setLocalidad(nuevaLocalidad);
-        expe.setImg(nuevaImagen);
-        
-        servexp.saveExperiencia(expe);
-        //reconoce la nueva Persona
-        return expe;
-        }
+    @PutMapping("/editar/{id}")
+	public Experiencia updateExperiencia(@PathVariable("id") int id, @RequestBody Experiencia experiencia) {
+			Experiencia _expe = servexp.findExperiencia(id);
+                        _expe.setNombreE(experiencia.getNombreE());
+			_expe.setDescripcionE(experiencia.getDescripcionE());
+			_expe.setInicio(experiencia.getInicio());
+			_expe.setFin(experiencia.getFin());
+                        _expe.setLocalidad(experiencia.getLocalidad());
+                        _expe.setImg(experiencia.getImg());
+			servexp.saveExperiencia(_expe);
+                        return _expe;
+		
+	}
     
      @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable int id) {

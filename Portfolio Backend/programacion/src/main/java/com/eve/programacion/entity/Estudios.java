@@ -15,14 +15,11 @@ public class Estudios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
     private String inicio;
     private String fin;
     @NotNull
     private String instituto;
-    @NotNull
     private String especializacion;
-    @NotNull
     private String descripcion;
     private String img;
     

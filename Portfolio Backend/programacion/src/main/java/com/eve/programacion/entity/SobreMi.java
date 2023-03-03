@@ -20,7 +20,6 @@ public class SobreMi {
      @NotNull
      @Lob //almacenamos algo grande
      private String texto;
-     @NotNull
      @Lob
      private String imagen;
 

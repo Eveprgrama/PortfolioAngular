@@ -45,30 +45,18 @@ public class CTrabajos {
         return "El trabajo fue borrado correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public Trabajos editTrabajos (@PathVariable int id,
-                                @RequestParam("imagen") String nuevaImagen,
-                                @RequestParam("pagina") String nuevaPagina,
-                                @RequestParam("categoria") String nuevaCategoria,
-                                @RequestParam("fecha") String nuevaFecha,
-                                @RequestParam("url") String nuevaUrl
-                               ) {
-        //busco la experiencia en cuestion
-        Trabajos trab = servtrab.findTrabajos(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        trab.setImagen(nuevaImagen);
-        trab.setPagina(nuevaPagina);
-        trab.setCategoria(nuevaCategoria);
-        trab.setFecha(nuevaFecha);
-        trab.setUrl(nuevaUrl);
-        
-        
-        servtrab.saveTrabajos(trab);
-        //reconoce la nueva Persona
-        return trab;
-        }
+     @PutMapping("/editar/{id}")
+	public Trabajos updateTrabajos(@PathVariable("id") int id, @RequestBody Trabajos trabajo) {
+			Trabajos _trab = servtrab.findTrabajos(id);
+                        _trab.setPagina(trabajo.getPagina());
+			_trab.setCategoria(trabajo.getCategoria());
+			_trab.setImagen(trabajo.getImagen());
+			_trab.setFecha(trabajo.getFecha());
+                        _trab.setUrl(trabajo.getUrl());
+			servtrab.saveTrabajos(_trab);
+                        return _trab;
+		
+	}
     
      @GetMapping("/detail/{id}")
     public ResponseEntity<Trabajos> getById(@PathVariable  int id) {

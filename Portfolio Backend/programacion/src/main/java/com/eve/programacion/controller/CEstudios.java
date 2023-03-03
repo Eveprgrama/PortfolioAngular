@@ -45,30 +45,19 @@ public class CEstudios {
         return "El estudio fue borrado correctamente";
     }
     
-    @PutMapping ("/editar/{id}")
-    public Estudios editEstudios (@PathVariable int id,
-                                @RequestParam("instituto") String nuevoInstituto,
-                                @RequestParam("especializacion") String nuevaEspecializacion,
-                                @RequestParam("descripcion") String nuevoDescripcion,
-                                @RequestParam("inicio") String nuevoInicio,
-                                @RequestParam("fin") String nuevoFin,
-                                @RequestParam("img") String nuevaImagen) {
-        //busco la experiencia en cuestion
-        Estudios estu = servedu.findEstudios(id);
-        
-        //esto tambien puede ir en un service
-        //para desacoplar aún mejor el código en un nuevo método
-        estu.setInstituto(nuevoInstituto);
-        estu.setEspecializacion(nuevaEspecializacion);
-        estu.setDescripcion(nuevoDescripcion);
-        estu.setInicio(nuevoInicio);
-        estu.setFin(nuevoFin);
-        estu.setImg(nuevaImagen);
-        
-        servedu.saveEstudios(estu);
-        //reconoce la nueva Persona
-        return estu;
-        }
+   @PutMapping("/editar/{id}")
+	public Estudios updateEstudios(@PathVariable("id") int id, @RequestBody Estudios estudios) {
+			Estudios _estu = servedu.findEstudios(id);
+                        _estu.setInstituto(estudios.getInstituto());
+			_estu.setDescripcion(estudios.getDescripcion());
+			_estu.setInicio(estudios.getInicio());
+			_estu.setFin(estudios.getFin());
+                        _estu.setEspecializacion(estudios.getEspecializacion());
+                        _estu.setImg(estudios.getImg());
+			servedu.saveEstudios(_estu);
+                        return _estu;
+		
+	}
     
     @GetMapping("mostrar")
     public Estudios findEstudios(@PathVariable int id) {

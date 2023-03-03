@@ -14,10 +14,8 @@ import { HardSkillsComponent } from './hard-skills/hard-skills.component';
 import { SoftskillsComponent } from './softskills/softskills.component';
 import { TrabajosComponent } from './trabajos/trabajos.component';
 import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/Error.component';
 import { IndexComponent } from './index/index.component';
-import { NavbardashboardComponent } from './dashboard/navbardashboard/navbardashboard.component';
 import { EditBannerComponent } from './Modales/edit-banner/edit-banner.component';
 import { EditSobremiComponent } from './Modales/edit-sobremi/edit-sobremi.component';
 import { EditresumeComponent } from './Modales/editresume/editresume.component';
@@ -34,6 +32,8 @@ import { NuevosoftComponent } from './Modales/edit-soft/nuevosoft/nuevosoft.comp
 import { NuevotrabajoComponent } from './Modales/edit-portfolio/nuevotrabajo/nuevotrabajo.component';
 import { interceptorProvider } from './service/interceptor.service';
 import { RegistroComponent } from './Modales/registro/registro/registro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -52,10 +52,8 @@ import { RegistroComponent } from './Modales/registro/registro/registro.componen
     SoftskillsComponent,
     TrabajosComponent,
     FooterComponent,
-      DashboardComponent,
       ErrorComponent,
       IndexComponent,
-      NavbardashboardComponent,
       EditBannerComponent,
       EditSobremiComponent,
       EditresumeComponent,
@@ -79,7 +77,9 @@ import { RegistroComponent } from './Modales/registro/registro/registro.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     interceptorProvider

@@ -40,18 +40,12 @@ export class LoginComponent implements OnInit {
   get Password(){
     return this.form.get("password");
   }
- 
-  get Mail(){
-   return this.form.get("email");
-  }
+
 
   get PasswordValid(){
     return this.Password?.touched && !this.Password?.valid;
   }
 
-  get MailValid() {
-    return this.Mail?.touched && !this.Mail?.valid;
-  }
  
 
   onEnviar(event: Event){
@@ -77,7 +71,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.router.navigateByUrl('/dashboard')
+        this.router.navigateByUrl('/index')
       }, err =>{
         this.isLogged = false;
         this.isLogginFail = true;

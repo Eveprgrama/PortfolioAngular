@@ -10,11 +10,12 @@
         <div class="align-content-center" id="contacto">
         <h2>Contactame!</h2>
       </div>
-      <form>      
-        <input name="name" type="text" class="feedback-input" placeholder="Nombre" />   
-        <input name="email" type="text" class="feedback-input" placeholder="Email" />
-        <textarea name="text" class="feedback-input" placeholder="Comentarios"></textarea>
-        <input type="submit" value="Enviar"/>
+      <form (ngSubmit)="Submit()">      
+        <input name="nombre" type="text" id="nombre" class="feedback-input" [(ngModel)]="contactForm.nombre" placeholder="Nombre" />   
+        <input name="email" type="email" class="feedback-input" id="email" [(ngModel)]="contactForm.email" placeholder="Email" />
+        <input name="subject" type="text" class="feedback-input" id="subject" [(ngModel)]="contactForm.subject"  placeholder="Asunto" />
+        <textarea name="mensaje" class="feedback-input" id="mensaje" [(ngModel)]="contactForm.mensaje" placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar</button>
       </form>
         </div>
         <!--Informacion-->

@@ -63,7 +63,6 @@ eliminar(id:number){
         this.cargarEstudios();
         window.location.reload();
       }, err => {
-        alert ("failed to delete component")
         window.location.reload();
       }
     )
